@@ -163,7 +163,7 @@ export default function HomeMain() {
 
           <div className="flex gap-2 mt-2">
             <BookmarkCheck className="h-6 w-6" />
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground">
               I&apos;ve just read{" "}
               <Link
                 to="https://frontendmastery.com/posts/navigating-the-future-of-frontend/"
