@@ -1,0 +1,160 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs-eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/action.set-theme": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/home._index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/home.main": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/home.cv": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/_index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/$": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "app/root.tsx",
+        "config": {}
+      },
+      "routes/action.set-theme": {
+        "file": "app/routes/action.set-theme.ts",
+        "id": "routes/action.set-theme",
+        "path": "action/set-theme",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/home._index": {
+        "file": "app/routes/home._index/route.tsx",
+        "id": "routes/home._index",
+        "index": true,
+        "parentId": "routes/home",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/home.main": {
+        "file": "app/routes/home.main/route.tsx",
+        "id": "routes/home.main",
+        "path": "main",
+        "parentId": "routes/home",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/home.cv": {
+        "file": "app/routes/home.cv/route.tsx",
+        "id": "routes/home.cv",
+        "path": "cv",
+        "parentId": "routes/home",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/_index": {
+        "file": "app/routes/_index.tsx",
+        "id": "routes/_index",
+        "index": true,
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/home": {
+        "file": "app/routes/home/route.tsx",
+        "id": "routes/home",
+        "path": "home",
+        "parentId": "root",
+        "config": {}
+      },
+      "routes/$": {
+        "file": "app/routes/$.tsx",
+        "id": "routes/$",
+        "path": "*",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "remixConfig": {
+    "appDirectory": "C:\\remix\\portfolio\\app",
+    "basename": "/",
+    "buildDirectory": "C:\\remix\\portfolio\\build",
+    "future": {
+      "v3_fetcherPersist": false,
+      "v3_relativeSplatPath": false,
+      "v3_throwAbortReason": false,
+      "unstable_singleFetch": false
+    },
+    "manifest": false,
+    "publicPath": "/",
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "root.tsx"
+      },
+      "routes/action.set-theme": {
+        "file": "routes/action.set-theme.ts",
+        "id": "routes/action.set-theme",
+        "path": "action/set-theme",
+        "parentId": "root"
+      },
+      "routes/home._index": {
+        "file": "routes/home._index/route.tsx",
+        "id": "routes/home._index",
+        "index": true,
+        "parentId": "routes/home"
+      },
+      "routes/home.main": {
+        "file": "routes/home.main/route.tsx",
+        "id": "routes/home.main",
+        "path": "main",
+        "parentId": "routes/home"
+      },
+      "routes/home.cv": {
+        "file": "routes/home.cv/route.tsx",
+        "id": "routes/home.cv",
+        "path": "cv",
+        "parentId": "routes/home"
+      },
+      "routes/_index": {
+        "file": "routes/_index.tsx",
+        "id": "routes/_index",
+        "index": true,
+        "parentId": "root"
+      },
+      "routes/home": {
+        "file": "routes/home/route.tsx",
+        "id": "routes/home",
+        "path": "home",
+        "parentId": "root"
+      },
+      "routes/$": {
+        "file": "routes/$.tsx",
+        "id": "routes/$",
+        "path": "*",
+        "parentId": "root"
+      }
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}

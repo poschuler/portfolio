@@ -53,7 +53,7 @@ export function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="https://avatars.githubusercontent.com/u/1238212?v=4" type="image/png"></link>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <Meta />
         <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
         <Links />
