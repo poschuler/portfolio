@@ -38,7 +38,7 @@ export default function Home() {
               <FileCode2 className="h-4 w-4" />
               cv
             </Link>
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </div>
         </nav>
 
