@@ -1,7 +1,8 @@
 // import { Link, Outlet } from "@remix-run/react";
 import { Link } from "@remix-run/react";
 //import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
-import { FileCode2, HomeIcon, Terminal } from "lucide-react";
+import { FileCode2, HomeIcon, Moon, Sun, Terminal } from "lucide-react";
+import { Theme, useTheme } from "remix-themes";
 import { Button } from "~/components/ui/button";
 // import { ModeToggle } from "~/components/mode.toggle";
 // import { Button } from "~/components/ui/button";
@@ -12,6 +13,8 @@ export async function loader() {
 }
 
 export default function Home() {
+  const [theme, setTheme] = useTheme();
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 justify-end md:justify-normal">
@@ -39,7 +42,21 @@ export default function Home() {
               <FileCode2 className="h-4 w-4" />
               cv
             </Link>
-            <Button>Test</Button>
+
+            <Button
+              variant="link"
+              size="icon"
+              className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() =>
+                setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)
+              }
+            >
+              {theme === Theme.LIGHT && <Moon className="h-5 w-5" />}
+
+              {theme === Theme.DARK && <Sun className="h-5 w-5" />}
+            </Button>
+
+            {/* <Button>Test</Button> */}
             {/* <ModeToggle /> */}
           </div>
         </nav>
