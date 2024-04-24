@@ -1,17 +1,24 @@
-//import { Moon, Sun } from "lucide-react";
 import { Moon, Sun } from "lucide-react";
 import { Theme, useTheme } from "remix-themes";
+
 import { Button } from "./ui/button";
+import clsx from "clsx";
 
-export function ModeToggle() {
+export function ModeToggle({ className }: { className?: string }) {
   const [theme, setTheme] = useTheme();
-
   return (
     <Button
       variant="link"
       size="icon"
-      className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-      onClick={() => setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)}
+      className={clsx(
+        "flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground",
+        className ? className : ""
+      )}
+      onClick={() =>
+        setTheme((prevTheme) =>
+          prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
+        )
+      }
     >
       {theme === Theme.LIGHT && <Moon className="h-5 w-5" />}
 
