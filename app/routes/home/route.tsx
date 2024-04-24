@@ -2,8 +2,9 @@
 import { Link } from "@remix-run/react";
 //import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
 import { FileCode2, HomeIcon, Terminal } from "lucide-react";
+import { ModeToggle } from "~/components/mode.toggle";
 // import { Theme, useTheme } from "remix-themes";
-import { Button } from "~/components/ui/button";
+
 // import { ModeToggle } from "~/components/mode.toggle";
 // import { Button } from "~/components/ui/button";
 // import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
@@ -13,6 +14,7 @@ export async function loader() {
 }
 
 export default function Home() {
+  //console.log(data.theme);
   // const [theme, setTheme] = useTheme();
 
   return (
@@ -43,7 +45,7 @@ export default function Home() {
               cv
             </Link>
 
-            <Button
+            {/* <Button
               variant="link"
               size="icon"
               className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
@@ -51,14 +53,10 @@ export default function Home() {
               //   setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)
               // }
             >
-              {/* {theme === Theme.LIGHT && <Moon className="h-5 w-5" />}
-
-              {theme === Theme.DARK && <Sun className="h-5 w-5" />} */}
-              test
-            </Button>
+            </Button> */}
 
             {/* <Button>Test</Button> */}
-            {/* <ModeToggle /> */}
+            <ModeToggle />
           </div>
         </nav>
 

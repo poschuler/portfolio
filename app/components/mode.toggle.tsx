@@ -1,10 +1,14 @@
 //import { Moon, Sun } from "lucide-react";
-import { Sun } from "lucide-react";
-// import { Theme, useTheme } from "remix-themes";
+import { Moon, Sun } from "lucide-react";
+import { Theme } from "remix-themes";
 import { Button } from "./ui/button";
+import { loader as rootLoader } from "~/root";
+import { useRouteLoaderData } from "@remix-run/react";
 
 export function ModeToggle() {
-  // const [theme, setTheme] = useTheme();
+  const data = useRouteLoaderData<typeof rootLoader>("root");
+  //const [, setTheme] = useTheme();
+
   return (
     <Button
       variant="link"
@@ -12,10 +16,9 @@ export function ModeToggle() {
       className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
       // onClick={() => setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)}
     >
-      {/* {theme === Theme.LIGHT && <Moon className="h-5 w-5" />} */}
+      {data.theme === Theme.LIGHT && <Moon className="h-5 w-5" />}
 
-      {/* {theme === Theme.DARK && <Sun className="h-5 w-5" />} */}
-      <Sun className="h-5 w-5" />
+      {data.theme === Theme.DARK && <Sun className="h-5 w-5" />}
     </Button>
   );
 }
