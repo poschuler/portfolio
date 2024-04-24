@@ -78,6 +78,7 @@ export default function Home() {
               <Link
                 to="/home"
                 className="flex items-center gap-2  text-muted-foreground hover:text-foreground"
+                reloadDocument={true}
               >
                 <HomeIcon className="h-4 w-4" />
                 home
@@ -85,6 +86,7 @@ export default function Home() {
               <Link
                 to="/home/cv"
                 className="flex items-center gap-2  text-muted-foreground hover:text-foreground"
+                reloadDocument={true}
               >
                 <FileCode2 className="h-4 w-4" />
                 cv

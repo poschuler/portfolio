@@ -2,6 +2,7 @@ import { Card, CardHeader } from "~/components/ui/card";
 import { Progress } from "~/components/ui/progress";
 import { Separator } from "~/components/ui/separator";
 import { Theme, useTheme } from "remix-themes";
+import { Link } from "@remix-run/react";
 
 import tailwindLogoDarkLogo from "~/icons/tailwindcss-logotype-dark.svg";
 import tailwindLogoWhiteLogo from "~/icons/tailwindcss-logotype-white.svg";
@@ -16,6 +17,10 @@ import shadcnDarkLogo from "~/icons/shadcn-dark.svg";
 import shadcnWhiteLogo from "~/icons/shadcn-white.svg";
 
 import reactLogo2 from "~/icons/reactjs-icon-2.svg";
+
+import tsLogo from "~/icons/ts-lettermark-blue.svg";
+import tsLogo2 from "~/icons/ts-logo-512.svg";
+import { BookmarkCheck } from "lucide-react";
 
 export default function HomeMain() {
   const [theme] = useTheme();
@@ -39,8 +44,8 @@ export default function HomeMain() {
 
         <div className="max-w-[450px] mx-auto">
           <blockquote className="text-center mt-2 italic text-muted-foreground text-lg">
-            &quot;Software Engineer & MBA from Peru, <br /> I&apos;m passionate
-            about technology, love to code and build new things.&quot;
+            &quot;Software Engineer & MBA from Peru" <br /> I work as software
+            developer and tech leader
           </blockquote>
         </div>
       </section>
@@ -49,42 +54,70 @@ export default function HomeMain() {
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
-            {theme === Theme.DARK && (
-              <img
-                src={tailwindLogoWhiteLogo}
-                alt="tailwind"
-                className="w-44"
-              />
-            )}
-            {theme === Theme.LIGHT && (
-              <img src={tailwindLogoDarkLogo} alt="tailwind" className="w-44" />
-            )}
+            <Link
+              to="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {theme === Theme.DARK && (
+                <img
+                  src={tailwindLogoWhiteLogo}
+                  alt="tailwind"
+                  className="w-44"
+                />
+              )}
+              {theme === Theme.LIGHT && (
+                <img
+                  src={tailwindLogoDarkLogo}
+                  alt="tailwind"
+                  className="w-44"
+                />
+              )}
+            </Link>
           </CardHeader>
         </Card>
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
-            {theme === Theme.DARK && (
-              <img src={remixDarkLogo} alt="remix" className="w-40" />
-            )}
-            {theme === Theme.LIGHT && (
-              <img src={remixWhiteLogo} alt="remix" className="w-40" />
-            )}
+            <Link
+              to="https://remix.run/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {theme === Theme.DARK && (
+                <img src={remixDarkLogo} alt="remix.run" className="w-40" />
+              )}
+              {theme === Theme.LIGHT && (
+                <img src={remixWhiteLogo} alt="remix.run" className="w-40" />
+              )}
+            </Link>
           </CardHeader>
         </Card>
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 flex flex-row items-center justify-center">
-            {theme === Theme.DARK && (
-              <img src={nodeWhiteLogo} alt="node" className="w-32" />
-            )}
-            {theme === Theme.LIGHT && (
-              <img src={nodeDarkLogo} alt="node" className="w-32" />
-            )}
+            <Link
+              to="https://nodejs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {theme === Theme.DARK && (
+                <img src={nodeWhiteLogo} alt="node" className="w-32" />
+              )}
+              {theme === Theme.LIGHT && (
+                <img src={nodeDarkLogo} alt="node" className="w-32" />
+              )}
+            </Link>
           </CardHeader>
         </Card>
 
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
-            <img src={reactLogo2} alt="react" className="w-32" />
+            <Link
+              to="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={reactLogo2} alt="react" className="w-32" />
+            </Link>
           </CardHeader>
         </Card>
       </div>
@@ -92,21 +125,32 @@ export default function HomeMain() {
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
-            <a
+            <Link
               className="mr-6 flex items-center space-x-2 font-sans"
-              href="https://ui.shadcn.com/"
+              to="https://ui.shadcn.com/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {theme === Theme.DARK && (
                 <img src={shadcnWhiteLogo} alt="shadcn" className="w-10" />
               )}
               {theme === Theme.LIGHT && (
-                <img src={shadcnDarkLogo} alt="node" className="w-10" />
+                <img src={shadcnDarkLogo} alt="shadcn" className="w-10" />
               )}
 
-              <span className="font-bold text-lg">
-                shadcn/ui
-              </span>
-            </a>
+              <span className="font-bold text-lg">shadcn/ui</span>
+            </Link>
+          </CardHeader>
+        </Card>
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://www.typescriptlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={tsLogo2} alt="typescript" className="w-12" />
+            </Link>
           </CardHeader>
         </Card>
       </div>
@@ -117,10 +161,20 @@ export default function HomeMain() {
             2024-04-23
           </small>
 
-          <p className="text-muted-foreground text-lg">
-            This site is under construction
-          </p>
-          <Progress value={10} aria-label="" className="mt-2 h-2" />
+          <div className="flex gap-2 mt-2">
+            <BookmarkCheck className="h-6 w-6" />
+            <p className="text-muted-foreground text-lg">
+              I&apos;ve just read{" "}
+              <Link
+                to="https://frontendmastery.com/posts/navigating-the-future-of-frontend/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                &quot;Navigating the future of frontend&quot;
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
     </main>
