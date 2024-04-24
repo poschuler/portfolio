@@ -44,7 +44,7 @@ export default function HomeMain() {
 
         <div className="max-w-[450px] mx-auto">
           <blockquote className="text-center mt-2 italic text-muted-foreground text-lg">
-            &quot;Software Engineer & MBA from Peru" <br /> I work as software
+            &quot;Software Engineer & MBA from Peru&quot; <br /> I work as software
             developer, tech leader and solutions architect.
           </blockquote>
         </div>
@@ -169,7 +169,7 @@ export default function HomeMain() {
                 to="https://frontendmastery.com/posts/navigating-the-future-of-frontend/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+                className="items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
               >
                 &quot;Navigating the future of frontend&quot;
               </Link>
