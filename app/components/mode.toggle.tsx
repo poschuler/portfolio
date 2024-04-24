@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import clsx from "clsx";
 
 export function ModeToggle({ className }: { className?: string }) {
-  const [theme, setTheme] = useTheme();
+  const [, setTheme] = useTheme();
   return (
     <Button
       variant="link"
@@ -20,9 +20,10 @@ export function ModeToggle({ className }: { className?: string }) {
         )
       }
     >
-      {theme === Theme.LIGHT && <Moon className="h-5 w-5" />}
+      {/* {theme === Theme.LIGHT && <Moon className="h-5 w-5" />} */}
+      {<Moon className="h-5 w-5" />}
 
-      {theme === Theme.DARK && <Sun className="h-5 w-5" />}
+      {/* {theme === Theme.DARK && <Sun className="h-5 w-5" />} */}
     </Button>
   );
 }
