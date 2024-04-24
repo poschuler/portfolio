@@ -45,7 +45,7 @@ export default function HomeMain() {
         <div className="max-w-[450px] mx-auto">
           <blockquote className="text-center mt-2 italic text-muted-foreground text-lg">
             &quot;Software Engineer & MBA from Peru" <br /> I work as software
-            developer, tech leader and solution architect.
+            developer, tech leader and solutions architect.
           </blockquote>
         </div>
       </section>
