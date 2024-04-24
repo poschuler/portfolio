@@ -95,7 +95,7 @@ export default function Home() {
           </SheetContent>
         </Sheet>
       </header>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 }
