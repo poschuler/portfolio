@@ -44,8 +44,8 @@ export default function HomeMain() {
 
         <div className="max-w-[450px] mx-auto">
           <blockquote className="text-center mt-2 italic text-muted-foreground text-lg">
-            &quot;Software Engineer & MBA from Peru&quot; <br /> I work as software
-            developer, tech leader and solutions architect.
+            &quot;Software Engineer & MBA from Peru&quot; <br /> I work as
+            software developer, tech leader and solutions architect.
           </blockquote>
         </div>
       </section>
@@ -158,6 +158,27 @@ export default function HomeMain() {
       <section className="w-full">
         <div className="p-4 border-l-2">
           <small className="text-base font-medium leading-none">
+            2024-04-24
+          </small>
+
+          <div className="flex gap-2 mt-2">
+            <BookmarkCheck className="h-6 w-6" />
+            <p className="text-muted-foreground">
+              I&apos;ve just read{" "}
+              <Link
+                to="https://www.epicweb.dev/stop-lying-to-your-users"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
+              >
+                &quot;Stop Lying to Your Users&quot;
+              </Link>
+              {" "}from Epic Web
+            </p>
+          </div>
+        </div>
+        <div className="p-4 border-l-2">
+          <small className="text-base font-medium leading-none">
             2024-04-23
           </small>
 
@@ -173,6 +194,7 @@ export default function HomeMain() {
               >
                 &quot;Navigating the future of frontend&quot;
               </Link>
+              {" "}from Frontend Mastery
             </p>
           </div>
         </div>
