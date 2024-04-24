@@ -2,7 +2,7 @@
 import { Link } from "@remix-run/react";
 //import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
 import { FileCode2, HomeIcon, Terminal } from "lucide-react";
-import { ModeToggle } from "~/components/mode.toggle";
+// import { ModeToggle } from "~/components/mode.toggle";
 // import { Button } from "~/components/ui/button";
 // import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 
