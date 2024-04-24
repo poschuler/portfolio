@@ -1,6 +1,8 @@
 // import { Link, Outlet } from "@remix-run/react";
-// import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
-// import { ModeToggle } from "~/components/mode.toggle";
+import { Link } from "@remix-run/react";
+//import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
+import { FileCode2, HomeIcon, Terminal } from "lucide-react";
+import { ModeToggle } from "~/components/mode.toggle";
 // import { Button } from "~/components/ui/button";
 // import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 
@@ -11,7 +13,7 @@ export async function loader() {
 export default function Home() {
   return (
     <div className="flex min-h-screen w-full flex-col">
-      {/* <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 justify-end md:justify-normal">
+      <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 justify-end md:justify-normal">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 flex-grow">
           <Link
             to="/home"
@@ -54,7 +56,7 @@ export default function Home() {
           </div>
         </nav>
 
-        <Sheet>
+        {/* <Sheet>
           <SheetTrigger asChild>
             <Button
               variant="outline"
@@ -93,8 +95,8 @@ export default function Home() {
               </Link>
             </nav>
           </SheetContent>
-        </Sheet>
-      </header> */}
+        </Sheet> */}
+      </header>
       {/* <Outlet /> */}
     </div>
   );
