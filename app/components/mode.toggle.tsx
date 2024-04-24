@@ -1,13 +1,14 @@
 //import { Moon, Sun } from "lucide-react";
 import { Moon, Sun } from "lucide-react";
-import { Theme } from "remix-themes";
+import { Theme, useTheme } from "remix-themes";
 import { Button } from "./ui/button";
 import { loader as rootLoader } from "~/root";
 import { useRouteLoaderData } from "@remix-run/react";
 
 export function ModeToggle() {
   const data = useRouteLoaderData<typeof rootLoader>("root");
-  //const [, setTheme] = useTheme();
+  console.log(data.theme);
+  const [, setTheme] = useTheme();
 
   return (
     <Button
