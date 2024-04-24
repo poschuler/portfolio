@@ -1,22 +1,14 @@
-// import { Link, Outlet } from "@remix-run/react";
-import { Link } from "@remix-run/react";
-//import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
-import { FileCode2, HomeIcon, Terminal } from "lucide-react";
+import { Link, Outlet } from "@remix-run/react";
+import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
 import { ModeToggle } from "~/components/mode.toggle";
-// import { Theme, useTheme } from "remix-themes";
-
-// import { ModeToggle } from "~/components/mode.toggle";
-// import { Button } from "~/components/ui/button";
-// import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
+import { Button } from "~/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 
 export async function loader() {
   return null;
 }
 
 export default function Home() {
-  //console.log(data.theme);
-  // const [theme, setTheme] = useTheme();
-
   return (
     <div className="flex min-h-screen w-full flex-col">
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 justify-end md:justify-normal">
@@ -44,23 +36,11 @@ export default function Home() {
               <FileCode2 className="h-4 w-4" />
               cv
             </Link>
-
-            {/* <Button
-              variant="link"
-              size="icon"
-              className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-              // onClick={() =>
-              //   setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)
-              // }
-            >
-            </Button> */}
-
-            {/* <Button>Test</Button> */}
             <ModeToggle />
           </div>
         </nav>
 
-        {/* <nav className="flex md:hidden gap-6 text-lg font-medium flex-grow">
+        <nav className="flex md:hidden gap-6 text-lg font-medium flex-grow">
           <Link
             to="/home"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
@@ -72,9 +52,9 @@ export default function Home() {
           <div className="flex flex-grow justify-end items-center gap-6 text-lg font-semibold md:text-base">
             <ModeToggle className="flex md:hidden" />
           </div>
-        </nav> */}
+        </nav>
 
-        {/* <Sheet>
+        <Sheet>
           <SheetTrigger asChild>
             <Button
               variant="outline"
@@ -113,9 +93,9 @@ export default function Home() {
               </Link>
             </nav>
           </SheetContent>
-        </Sheet> */}
+        </Sheet>
       </header>
-      {/* <Outlet /> */}
+      <Outlet />
     </div>
   );
 }
