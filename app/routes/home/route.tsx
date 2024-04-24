@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         </nav>
 
-        <nav className="flex md:hidden gap-6 text-lg font-medium flex-grow">
+        {/* <nav className="flex md:hidden gap-6 text-lg font-medium flex-grow">
           <Link
             to="/home"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
@@ -54,7 +54,7 @@ export default function Home() {
           <div className="flex flex-grow justify-end items-center gap-6 text-lg font-semibold md:text-base">
             <ModeToggle className="flex md:hidden" />
           </div>
-        </nav>
+        </nav> */}
 
         {/* <Sheet>
           <SheetTrigger asChild>
