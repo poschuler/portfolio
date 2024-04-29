@@ -1,5 +1,5 @@
 import { Link, Outlet } from "@remix-run/react";
-import { FileCode2, HomeIcon, Menu, Terminal } from "lucide-react";
+import { FileCode2, GitMerge, HomeIcon, Menu, Terminal } from "lucide-react";
 import { ModeToggle } from "~/components/mode.toggle";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
@@ -28,6 +28,13 @@ export default function Home() {
             >
               <HomeIcon className="h-4 w-4" />
               <span>home</span>
+            </Link>
+            <Link
+              to="/home/projects"
+              className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <GitMerge className="h-4 w-4" />
+              <span>projects</span>
             </Link>
             <Link
               to="/home/cv"
@@ -82,6 +89,14 @@ export default function Home() {
               >
                 <HomeIcon className="h-4 w-4" />
                 home
+              </Link>
+              <Link
+                to="/home/projects"
+                className="flex items-center gap-2  text-muted-foreground hover:text-foreground"
+                reloadDocument={true}
+              >
+                <GitMerge className="h-4 w-4" />
+                projects
               </Link>
               <Link
                 to="/home/cv"

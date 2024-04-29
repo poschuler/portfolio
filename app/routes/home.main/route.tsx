@@ -1,5 +1,4 @@
 import { Card, CardHeader } from "~/components/ui/card";
-import { Progress } from "~/components/ui/progress";
 import { Separator } from "~/components/ui/separator";
 import { Theme, useTheme } from "remix-themes";
 import { Link } from "@remix-run/react";
@@ -18,7 +17,6 @@ import shadcnWhiteLogo from "~/icons/shadcn-white.svg";
 
 import reactLogo2 from "~/icons/reactjs-icon-2.svg";
 
-import tsLogo from "~/icons/ts-lettermark-blue.svg";
 import tsLogo2 from "~/icons/ts-logo-512.svg";
 import { BookmarkCheck } from "lucide-react";
 
@@ -169,11 +167,11 @@ export default function HomeMain() {
                 to="https://www.epicweb.dev/stop-lying-to-your-users"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
+                className="text-foreground transition-colors hover:text-muted-foreground"
               >
                 &quot;Stop Lying to Your Users&quot;
-              </Link>
-              {" "}from Epic Web
+              </Link>{" "}
+              from Epic Web
             </p>
           </div>
         </div>
@@ -190,11 +188,11 @@ export default function HomeMain() {
                 to="https://frontendmastery.com/posts/navigating-the-future-of-frontend/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="items-center gap-2 text-foreground transition-colors hover:text-muted-foreground"
+                className="text-foreground transition-colors hover:text-muted-foreground"
               >
                 &quot;Navigating the future of frontend&quot;
-              </Link>
-              {" "}from Frontend Mastery
+              </Link>{" "}
+              from Frontend Mastery
             </p>
           </div>
         </div>

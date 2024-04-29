@@ -46,7 +46,7 @@
       "location": "Remote",
       "startDate": "2021",
       "endDate": "current work",
-      "summary": "In change of +10 people of the RPA development Team & Chatbot team. Solutions Architect. In charge of the Robotics area's Technology roadmap. Budget management. Tecnologies: Power Platform, Pega Robotics, MS SQL Server, .NET 4.0, Microsoft LUIS."
+      "summary": "In charge of +10 people of the RPA development Team & Chatbot team. Solutions Architect. In charge of the Robotics area's Technology roadmap. Budget management. Tecnologies: Power Platform, Pega Robotics, MS SQL Server, .NET 4.0, Microsoft LUIS."
     },
     {
       "row": 2,
@@ -110,24 +110,6 @@
       "startDate": "2011",
       "endDate": "2012",
       "summary": "Banking application for customer identification through queue management system with RENIEC. Web Developer/Back-End Developer. Technologies: .NET 4.0, C#, MS SQL Sever, WebSphere MQ."
-    },
-    {
-      "row": 9,
-      "name": "Recovery S.A.C.",
-      "position": "Web Developer",
-      "location": "",
-      "startDate": "2010",
-      "endDate": "2011",
-      "summary": "Payment, Sales and Inventory system. Web application developer. Technologies: .NET, C#, PHP, MySQL."
-    },
-    {
-      "row": 10,
-      "name": "DICSO S.A.C.",
-      "position": "Developer Trainee",
-      "location": "",
-      "startDate": "2009",
-      "endDate": "2010",
-      "summary": "Desktop application developer.Technologies: .NET, C#. "
     }
   ],
   "education": [
@@ -298,19 +280,23 @@
     },
     {
       "row": 6,
-      "name": "C#"
+      "name": "PostgreSQL"
     },
     {
       "row": 7,
-      "name": "PHP"
-    },
-    {
-      "row": 8,
       "name": "MongoDB"
     },
     {
+      "row": 8,
+      "name": "MS SQL Server"
+    },
+    {
       "row": 9,
-      "name": "MS SQL SERVER"
+      "name": ".NET"
+    },
+    {
+      "row": 10,
+      "name": "C#"
     }
   ],
   "languages": [

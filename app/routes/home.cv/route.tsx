@@ -19,7 +19,7 @@ export async function loader() {
   return json({ basics, work, education, languages, skills, certificates });
 }
 
-export default function App() {
+export default function HomeCV() {
   return (
     <main className="flex h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
       <section className="mx-auto w-full max-w-2xl space-y-8">
