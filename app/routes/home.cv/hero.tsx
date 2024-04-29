@@ -86,10 +86,10 @@ export function Hero() {
           <Link
             to="/home/cv.pdf"
             reloadDocument
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-2"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-xs font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-2"
           >
             <DownloadIcon className="size-4 mr-2" />
-            <span>Download as pdf</span>
+            <span>Download PDF</span>
           </Link>
         </div>
 
