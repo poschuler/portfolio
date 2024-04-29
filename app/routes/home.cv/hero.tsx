@@ -1,9 +1,10 @@
 import {
+  DownloadIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { Globe, Mail } from "lucide-react";
 import { loader } from "~/routes/home.cv/route";
 
@@ -82,6 +83,14 @@ export function Hero() {
               )}
             </a>
           ))}
+          <Link
+            to="/home/cv.pdf"
+            reloadDocument
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-2"
+          >
+            <DownloadIcon className="size-4 mr-2" />
+            <span>Download as pdf</span>
+          </Link>
         </div>
 
         <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground"></div>

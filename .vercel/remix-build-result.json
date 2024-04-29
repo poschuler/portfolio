@@ -11,6 +11,8 @@
     },
     "routeIdToServerBundleId": {
       "routes/action.set-theme": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/home.cv[.]pdf": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/home.projects": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/home._index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/home.main": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/home.cv": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
@@ -29,6 +31,24 @@
         "id": "routes/action.set-theme",
         "path": "action/set-theme",
         "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/home.cv[.]pdf": {
+        "file": "app/routes/home.cv[.]pdf/route.tsx",
+        "id": "routes/home.cv[.]pdf",
+        "path": "cv.pdf",
+        "parentId": "routes/home",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/home.projects": {
+        "file": "app/routes/home.projects/route.tsx",
+        "id": "routes/home.projects",
+        "path": "projects",
+        "parentId": "routes/home",
         "config": {
           "runtime": "nodejs"
         }
@@ -110,6 +130,18 @@
         "id": "routes/action.set-theme",
         "path": "action/set-theme",
         "parentId": "root"
+      },
+      "routes/home.cv[.]pdf": {
+        "file": "routes/home.cv[.]pdf/route.tsx",
+        "id": "routes/home.cv[.]pdf",
+        "path": "cv.pdf",
+        "parentId": "routes/home"
+      },
+      "routes/home.projects": {
+        "file": "routes/home.projects/route.tsx",
+        "id": "routes/home.projects",
+        "path": "projects",
+        "parentId": "routes/home"
       },
       "routes/home._index": {
         "file": "routes/home._index/route.tsx",

@@ -41,12 +41,12 @@
   "work": [
     {
       "row": 1,
-      "name": "Scotiabank Peru",
+      "name": "Scotiabank Perú",
       "position": "Team Leader/Tech Leader",
       "location": "Remote",
       "startDate": "2021",
       "endDate": "current work",
-      "summary": "In charge of +10 people of the RPA development Team & Chatbot team. Solutions Architect. In charge of the Robotics area's Technology roadmap. Budget management. Tecnologies: Power Platform, Pega Robotics, MS SQL Server, .NET 4.0, Microsoft LUIS."
+      "summary": "In charge of +10 people of the RPA development Team & Chatbot team. Solutions Architect. In charge of the Robotics area's Technology roadmap. Budget management. Technologies: Power Platform, Pega Robotics, MS SQL Server, .NET 4.0, Microsoft LUIS."
     },
     {
       "row": 2,
@@ -55,11 +55,11 @@
       "location": "Daily commute → Remote",
       "startDate": "2019",
       "endDate": "2021",
-      "summary": "In charge of the CoE Smart Automation's Technology roadmap. In charge of the fulfillment of the bank security and technology standards. OKR & KPI definition. In charge of 5 development squad. RPA Solutions architec. RPA Project manager, budget ~2M USD. Generating ~8M USD (savings, cost avoidance, revenue). Technologies: Automation Anywhere, BPMS, Low Code, BRMS, API, Azure bot services."
+      "summary": "In charge of the CoE Smart Automation's Technology roadmap. In charge of the fulfillment of the bank security and technology standards. OKR & KPI definition. In charge of 5 development squad. RPA Solutions architect. RPA Project manager, budget ~2M USD. Generating ~8M USD (savings, cost avoidance, revenue). Technologies: Automation Anywhere, BPMS, Low Code, BRMS, API, Azure bot services."
     },
     {
       "row": 3,
-      "name": "Scotiabank Peru",
+      "name": "Scotiabank Perú",
       "position": "RPA Tech Leader",
       "location": "",
       "startDate": "2016",
@@ -68,7 +68,7 @@
     },
     {
       "row": 4,
-      "name": "Scotiabank Peru",
+      "name": "Scotiabank Perú",
       "position": "IT Analyst Jr. → Tech Leader",
       "location": "",
       "startDate": "2014",
@@ -86,7 +86,7 @@
     },
     {
       "row": 6,
-      "name": "MINEDU Peru",
+      "name": "MINEDU Perú",
       "position": "Software Developer",
       "location": "",
       "startDate": "2013",
@@ -100,7 +100,7 @@
       "location": "",
       "startDate": "2012",
       "endDate": "2013",
-      "summary": "Banking system for mortgage loans management. Web application developer. Technologies: .NET 3.5, C#, Visual Basic .NET, Cobol AS400, MS SQL Sever."
+      "summary": "Banking system for mortgage loans management. Web application developer. Technologies: .NET 3.5, C#, Visual Basic .NET, Cobol AS400, MS SQL Server."
     },
     {
       "row": 8,
@@ -109,7 +109,7 @@
       "location": "",
       "startDate": "2011",
       "endDate": "2012",
-      "summary": "Banking application for customer identification through queue management system with RENIEC. Web Developer/Back-End Developer. Technologies: .NET 4.0, C#, MS SQL Sever, WebSphere MQ."
+      "summary": "Banking application for customer identification through queue management system with RENIEC. Web Developer/Back-End Developer. Technologies: .NET 4.0, C#, MS SQL Server, WebSphere MQ."
     }
   ],
   "education": [
@@ -178,7 +178,7 @@
     },
     {
       "row": 3,
-      "name": "Web Developer in",
+      "name": "Web Developer",
       "date": "2023",
       "issuer": "Zero to Mastery Academy",
       "url": "https://drive.google.com/file/d/14LxGXtcCxT6OIbAWBJJ-qfrq3h0dd2Bw/view?usp=drive_link",
