@@ -1,4 +1,8 @@
-import { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import {
+  LinksFunction,
+  LoaderFunctionArgs,
+  MetaFunction,
+} from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -53,6 +57,18 @@ export function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-16x16.png"
+          sizes="16x16"
+        />
         <Meta />
         <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
         <Links />
