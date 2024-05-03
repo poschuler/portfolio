@@ -19,6 +19,8 @@ import {
 } from "remix-themes";
 import { themeSessionResolver } from "~/services/session.server";
 import stylesheet from "~/tailwind.css?url";
+import favicon16 from "~/favicon/favicon-16x16.png";
+import favicon32 from "~/favicon/favicon-32x32.png";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -57,18 +59,8 @@ export function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          type="image/png"
-          href="favicon-32x32.png"
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="favicon-16x16.png"
-          sizes="16x16"
-        />
+        <link rel="icon" type="image/png" href={favicon16} sizes="32x32" />
+        <link rel="icon" type="image/png" href={favicon32} sizes="16x16" />
         <Meta />
         <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
         <Links />
