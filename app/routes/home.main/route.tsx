@@ -1,7 +1,7 @@
 import { Card, CardHeader } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { Theme, useTheme } from "remix-themes";
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 
 import tailwindLogoDarkLogo from "~/icons/tailwindcss-logotype-dark.svg";
 import tailwindLogoWhiteLogo from "~/icons/tailwindcss-logotype-white.svg";
@@ -19,9 +19,21 @@ import reactLogo2 from "~/icons/reactjs-icon-2.svg";
 
 import tsLogo2 from "~/icons/ts-logo-512.svg";
 import { BookmarkCheck } from "lucide-react";
+import { FeedRowType, findAllFeeds } from "~/models/feeds.server";
+
+type LoaderData = {
+  feeds: Array<FeedRowType>;
+};
+
+export async function loader() {
+  let feeds = await findAllFeeds();
+
+  return { feeds };
+}
 
 export default function HomeMain() {
-  const [theme] = useTheme();
+  let [theme] = useTheme();
+  let { feeds } = useLoaderData() as LoaderData;
 
   return (
     <main className="flex flex-col min-h-[calc(100vh_-_theme(spacing.16))] flex-1 gap-4 bg-muted/40 p-4 md:gap-8 md:p-10 font-mono">
@@ -154,7 +166,11 @@ export default function HomeMain() {
       </div>
 
       <section className="w-full">
-        <div className="p-4 border-l-2">
+        {feeds &&
+          feeds.map((feed) => {
+            return <Feed key={feed.idFeed} feed={feed} />;
+          })}
+        {/* <div className="p-4 border-l-2">
           <small className="text-base font-medium leading-none">
             2024-04-24
           </small>
@@ -195,8 +211,30 @@ export default function HomeMain() {
               from Frontend Mastery
             </p>
           </div>
-        </div>
+        </div> */}
       </section>
     </main>
+  );
+}
+
+type FeedProps = {
+  feed: FeedRowType;
+};
+
+function Feed({ feed }: FeedProps) {
+  return (
+    <div className="p-4 border-l-2">
+      <small className="text-base font-medium leading-none">
+        {feed.stringDate}
+      </small>
+
+      <div className="flex gap-2 mt-2">
+        <BookmarkCheck className="h-6 w-6" />
+        <p
+          className="text-muted-foreground"
+          dangerouslySetInnerHTML={{ __html: feed.content }}
+        ></p>
+      </div>
+    </div>
   );
 }
