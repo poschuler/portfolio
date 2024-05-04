@@ -18,13 +18,13 @@ import {
 import { loader } from "~/routes/home.cv/route";
 
 export function KeyboardManager() {
-  const [open, setOpen] = useState(false);
-  const {
+  let [open, setOpen] = useState(false);
+  let {
     basics: { profiles },
   } = useLoaderData<typeof loader>();
 
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
+    let down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
@@ -42,7 +42,7 @@ export function KeyboardManager() {
     return () => document.removeEventListener("keydown", down);
   }, [profiles]);
 
-  const handleClick = () => {
+  let handleClick = () => {
     setOpen(!open);
   };
 

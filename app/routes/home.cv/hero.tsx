@@ -9,7 +9,7 @@ import { Globe, Mail } from "lucide-react";
 import { loader } from "~/routes/home.cv/route";
 
 export function Hero() {
-  const {
+  let {
     basics: {
       name,
       label,

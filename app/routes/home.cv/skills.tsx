@@ -3,7 +3,7 @@ import { Section } from "~/components/section";
 import { loader } from "~/routes/home.cv/route";
 
 export function Skills() {
-  const { skills } = useLoaderData<typeof loader>();
+  let { skills } = useLoaderData<typeof loader>();
 
   return (
     <Section title="Skills">

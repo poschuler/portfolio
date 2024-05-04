@@ -1,6 +1,6 @@
 export async function loader() {
-  const response = await fetch("https://cdn.poschuler.dev/cv.pdf");
-  const data = await response.arrayBuffer();
+  let response = await fetch("https://cdn.poschuler.dev/cv.pdf");
+  let data = await response.arrayBuffer();
 
   return new Response(data, {
     status: 200,

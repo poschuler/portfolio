@@ -172,46 +172,25 @@ export default function HomeMain() {
           })}
         {/* <div className="p-4 border-l-2">
           <small className="text-base font-medium leading-none">
-            2024-04-24
+            Date
           </small>
 
           <div className="flex gap-2 mt-2">
             <BookmarkCheck className="h-6 w-6" />
             <p className="text-muted-foreground">
-              I&apos;ve just read{" "}
+              Text
               <Link
-                to="https://www.epicweb.dev/stop-lying-to-your-users"
+                to=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground transition-colors hover:text-muted-foreground"
               >
-                &quot;Stop Lying to Your Users&quot;
+                Text
               </Link>{" "}
-              from Epic Web
+              Text
             </p>
           </div>
-        </div>
-        <div className="p-4 border-l-2">
-          <small className="text-base font-medium leading-none">
-            2024-04-23
-          </small>
-
-          <div className="flex gap-2 mt-2">
-            <BookmarkCheck className="h-6 w-6" />
-            <p className="text-muted-foreground">
-              I&apos;ve just read{" "}
-              <Link
-                to="https://frontendmastery.com/posts/navigating-the-future-of-frontend/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground transition-colors hover:text-muted-foreground"
-              >
-                &quot;Navigating the future of frontend&quot;
-              </Link>{" "}
-              from Frontend Mastery
-            </p>
-          </div>
-        </div> */}
+        </div>*/}
       </section>
     </main>
   );

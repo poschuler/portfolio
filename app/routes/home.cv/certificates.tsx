@@ -3,7 +3,7 @@ import { Section } from "~/components/section";
 import { loader } from "~/routes/home.cv/route";
 
 export function Certificates() {
-  const { certificates } = useLoaderData<typeof loader>();
+  let { certificates } = useLoaderData<typeof loader>();
 
   return (
     <Section title="Certificates">

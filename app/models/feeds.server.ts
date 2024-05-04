@@ -1,4 +1,3 @@
-import pg from "pg";
 import { dbQuery } from "~/db.server";
 
 export type FeedRowType = {
@@ -10,9 +9,9 @@ export type FeedRowType = {
 export async function findAllFeeds() {
   let queryResult = await dbQuery<FeedRowType>(
     `select
-      id_feed as ${pg.escapeIdentifier("idFeed")},
-      content as ${pg.escapeIdentifier("content")},
-      TO_CHAR(date, 'YYYY-MM-DD') as ${pg.escapeIdentifier("stringDate")}
+      id_feed as "idFeed",
+      content as "content",
+      TO_CHAR(date, 'YYYY-MM-DD') as "stringDate"
       from feeds
       order by date desc
     `,

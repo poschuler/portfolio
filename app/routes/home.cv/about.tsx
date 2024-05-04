@@ -3,7 +3,7 @@ import { Section } from "~/components/section";
 import { loader } from "~/routes/home.cv/route";
 
 export function About() {
-  const {
+  let {
     basics: { summary },
   } = useLoaderData<typeof loader>();
 
