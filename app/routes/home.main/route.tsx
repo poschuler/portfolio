@@ -5,19 +5,21 @@ import { Link, useLoaderData } from "@remix-run/react";
 
 import tailwindLogoDarkLogo from "~/icons/tailwindcss-logotype-dark.svg";
 import tailwindLogoWhiteLogo from "~/icons/tailwindcss-logotype-white.svg";
-
 import nodeWhiteLogo from "~/icons/nodejs-light.svg";
 import nodeDarkLogo from "~/icons/nodejs-dark.svg";
-
 import remixDarkLogo from "~/icons/remix-dark.svg";
 import remixWhiteLogo from "~/icons/remix-light.svg";
-
-import shadcnDarkLogo from "~/icons/shadcn-dark.svg";
-import shadcnWhiteLogo from "~/icons/shadcn-white.svg";
-
+//import shadcnDarkLogo from "~/icons/shadcn-dark.svg";
+//import shadcnWhiteLogo from "~/icons/shadcn-white.svg";
 import reactLogo2 from "~/icons/reactjs-icon-2.svg";
-
 import tsLogo2 from "~/icons/ts-logo-512.svg";
+
+//import cSharpLogo from "~/icons/c-sharp.svg";
+import mongoDbLogo from "~/icons/MongoDB_Fores-Green.svg";
+import postgresqlLogo from "~/icons/PostgreSQL_logo.3colors.svg";
+//import sqlServerLogo from "~/icons/microsoft-sql-server-logo.svg";
+import nestjsLogo from "~/icons/nestjs-icon.svg";
+
 import { BookmarkCheck } from "lucide-react";
 import { FeedRowType, findAllFeeds } from "~/models/feeds.server";
 
@@ -65,43 +67,15 @@ export default function HomeMain() {
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
-              to="https://tailwindcss.com/"
+              to="https://www.typescriptlang.org/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {theme === Theme.DARK && (
-                <img
-                  src={tailwindLogoWhiteLogo}
-                  alt="tailwind"
-                  className="w-44"
-                />
-              )}
-              {theme === Theme.LIGHT && (
-                <img
-                  src={tailwindLogoDarkLogo}
-                  alt="tailwind"
-                  className="w-44"
-                />
-              )}
+              <img src={tsLogo2} alt="typescript" className="w-12" />
             </Link>
           </CardHeader>
         </Card>
-        <Card className="flex h-20 justify-center items-center">
-          <CardHeader className="p-0 space-y-0">
-            <Link
-              to="https://remix.run/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {theme === Theme.DARK && (
-                <img src={remixDarkLogo} alt="remix.run" className="w-40" />
-              )}
-              {theme === Theme.LIGHT && (
-                <img src={remixWhiteLogo} alt="remix.run" className="w-40" />
-              )}
-            </Link>
-          </CardHeader>
-        </Card>
+
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 flex flex-row items-center justify-center">
             <Link
@@ -130,36 +104,81 @@ export default function HomeMain() {
             </Link>
           </CardHeader>
         </Card>
-      </div>
 
-      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
-              className="mr-6 flex items-center space-x-2 font-sans"
-              to="https://ui.shadcn.com/"
+              to="https://tailwindcss.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               {theme === Theme.DARK && (
-                <img src={shadcnWhiteLogo} alt="shadcn" className="w-10" />
+                <img
+                  src={tailwindLogoWhiteLogo}
+                  alt="tailwind"
+                  className="w-44"
+                />
               )}
               {theme === Theme.LIGHT && (
-                <img src={shadcnDarkLogo} alt="shadcn" className="w-10" />
+                <img
+                  src={tailwindLogoDarkLogo}
+                  alt="tailwind"
+                  className="w-44"
+                />
               )}
-
-              <span className="font-bold text-lg">shadcn/ui</span>
             </Link>
           </CardHeader>
         </Card>
+
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
-              to="https://www.typescriptlang.org/"
+              to="https://remix.run/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={tsLogo2} alt="typescript" className="w-12" />
+              {theme === Theme.DARK && (
+                <img src={remixDarkLogo} alt="remix.run" className="w-40" />
+              )}
+              {theme === Theme.LIGHT && (
+                <img src={remixWhiteLogo} alt="remix.run" className="w-40" />
+              )}
+            </Link>
+          </CardHeader>
+        </Card>
+
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://nestjs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={nestjsLogo} alt="remix.run" className="w-14" />
+            </Link>
+          </CardHeader>
+        </Card>
+
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://www.postgresql.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={postgresqlLogo} alt="react" className="w-14" />
+            </Link>
+          </CardHeader>
+        </Card>
+
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://www.mongodb.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={mongoDbLogo} alt="react" className="w-36" />
             </Link>
           </CardHeader>
         </Card>
