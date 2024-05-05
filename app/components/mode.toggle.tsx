@@ -8,11 +8,11 @@ import { useRouteLoaderData } from "@remix-run/react";
 import { loader as rootLoader } from "~/root";
 
 export function ModeToggle({ className }: { className?: string }) {
-  const isHydrated = useHydrated();
-  const [theme, setTheme] = useTheme();
-  const data = useRouteLoaderData<typeof rootLoader>("root");
+  let isHydrated = useHydrated();
+  let [theme, setTheme] = useTheme();
+  let data = useRouteLoaderData<typeof rootLoader>("root");
 
-  const toggleTheme = () => {
+  let toggleTheme = () => {
     setTheme((prevTheme) =>
       prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
     );
