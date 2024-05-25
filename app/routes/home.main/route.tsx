@@ -20,6 +20,11 @@ import postgresqlLogo from "~/icons/PostgreSQL_logo.3colors.svg";
 //import sqlServerLogo from "~/icons/microsoft-sql-server-logo.svg";
 import nestjsLogo from "~/icons/nestjs-icon.svg";
 
+import dotNetLogo from "~/icons/dotnet-logo.svg";
+import cSharpLogo from "~/icons/c-sharp.svg";
+import msSQLServerLogo from "~/icons/microsoft-sql-server-logo.svg";
+import msSQLServerLogoWhite from "~/icons/sql-server-logo-white.png";
+
 import { BookmarkCheck } from "lucide-react";
 import { FeedRowType, findAllFeeds } from "~/models/feeds.server";
 
@@ -56,8 +61,7 @@ export default function HomeMain() {
 
         <div className="max-w-[450px] mx-auto">
           <blockquote className="text-center mt-2 italic text-muted-foreground text-lg">
-            &quot;Software Engineer & MBA from Peru&quot; <br /> I work as
-            software developer, tech leader and solutions architect.
+            &quot;Full Stack Developer from Peru&quot;
           </blockquote>
         </div>
       </section>
@@ -155,6 +159,47 @@ export default function HomeMain() {
               rel="noopener noreferrer"
             >
               <img src={nestjsLogo} alt="remix.run" className="w-14" />
+            </Link>
+          </CardHeader>
+        </Card>
+
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://remix.run/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={cSharpLogo} alt="remix.run" className="w-12" />
+            </Link>
+          </CardHeader>
+        </Card>
+
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://remix.run/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={dotNetLogo} alt="remix.run" className="w-12" />
+            </Link>
+          </CardHeader>
+        </Card>
+
+        <Card className="flex h-20 justify-center items-center">
+          <CardHeader className="p-0 space-y-0">
+            <Link
+              to="https://remix.run/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {theme === Theme.DARK && (
+                <img src={msSQLServerLogoWhite} alt="remix.run" className="w-[70px]" />
+              )}
+              {theme === Theme.LIGHT && (
+                <img src={msSQLServerLogo} alt="remix.run" className="w-[70px]" />
+              )}
             </Link>
           </CardHeader>
         </Card>

@@ -1,11 +1,11 @@
 {
   "basics": {
     "name": "Paul Osorio Schuler",
-    "label": "Software Engineer & MBA",
+    "label": "Full Stack Developer",
     "image": "https://avatars.githubusercontent.com/u/1238212?v=4",
     "email": "poschuler@gmail.com",
     "url": "https://poschuler.com",
-    "summary": "10+ years of experience in the Software Industry, working as Tech-Leader, Team-Leader, Software Architect and Web/Desktop/Back-End Developer, working most of the time in Banking Solutions for the main banks in Peru.",
+    "summary": "As a Full Stack Developer, I have successfully implemented multiple applications focusing on performance and security. I lead teams effectively, ensuring the best possible environment where people can do their best. I have mostly worked on financial solutions for banks in Peru, using .NET, C#, and SQL Server. Currently, I am working for Chekalo.pe with Typescript, React, Remix, Node.js, and PostgreSQL. I have over 10 years of experience in the software industry, working in various roles.",
     "location": {
       "address": "Chosica",
       "postalCode": "15472",
@@ -40,76 +40,85 @@
   },
   "work": [
     {
-      "row": 1,
-      "name": "Scotiabank Perú",
-      "position": "Team Leader/Tech Leader",
+      "row": 9,
+      "name": "Chekalo.pe",
+      "position": "Full Stack Developer/Tech Leader",
       "location": "Remote",
-      "startDate": "2021",
+      "startDate": "07/2023",
       "endDate": "current work",
-      "summary": "In charge of +10 people of the RPA development Team & Chatbot team. Solutions Architect. In charge of the Robotics area's Technology roadmap. Budget management. Technologies: Power Platform, Pega Robotics, MS SQL Server, .NET 4.0, Microsoft LUIS."
-    },
-    {
-      "row": 2,
-      "name": "Banco de Crédito BCP",
-      "position": "Smart Automation Tech Leader → Tribe Technical Leader",
-      "location": "Daily commute → Remote",
-      "startDate": "2019",
-      "endDate": "2021",
-      "summary": "In charge of the CoE Smart Automation's Technology roadmap. In charge of the fulfillment of the bank security and technology standards. OKR & KPI definition. In charge of 5 development squad. RPA Solutions architect. RPA Project manager, budget ~2M USD. Generating ~8M USD (savings, cost avoidance, revenue). Technologies: Automation Anywhere, BPMS, Low Code, BRMS, API, Azure bot services."
-    },
-    {
-      "row": 3,
-      "name": "Scotiabank Perú",
-      "position": "RPA Tech Leader",
-      "location": "",
-      "startDate": "2016",
-      "endDate": "2019",
-      "summary": "RPA project manager, budget 700k USD. In charge of 3-9 people. 21 RPA implementations, generating 1M USD per year (savings, cost avoidance, revenue). Technologies: Pega Robotics, MS SQL Server, C#, .NET 4.0, Microsoft LUIS."
-    },
-    {
-      "row": 4,
-      "name": "Scotiabank Perú",
-      "position": "IT Analyst Jr. → Tech Leader",
-      "location": "",
-      "startDate": "2014",
-      "endDate": "2016",
-      "summary": "Banking system for banking accounts opening in 5 minutes. Banking system for Wholesale banking loans management. In charge of 1-5 people. Web Developer/Back-End Developer. Solutions designer. Technologies: C#, Visual Basic, MS SQL Server, MVC, .NET 3.5, .NET 4.0, Web Services, WCF, ETL, AS400, COBOL."
-    },
-    {
-      "row": 5,
-      "name": "Software Enterprise Services",
-      "position": "Software Developer",
-      "location": "",
-      "startDate": "2014",
-      "endDate": "2014",
-      "summary": "Banking system for Wholesale banking loans management. Web Developer. Technologies: .NET 3.0, C#, Visual Basic .NET, MS SQL Server, COBOL, AS400."
-    },
-    {
-      "row": 6,
-      "name": "MINEDU Perú",
-      "position": "Software Developer",
-      "location": "",
-      "startDate": "2013",
-      "endDate": "2014",
-      "summary": "Academic system implementation: admission process & students management for pedagogical national institutes. Solution Architect, Database designer, Web developer, Back-End developer. Technologies: HTML5, Bootstrap, C#, MVC 4, SQL Server, PHP, Yii Framework, MySQL."
-    },
-    {
-      "row": 7,
-      "name": "Software Enterprise Services",
-      "position": "Software Developer",
-      "location": "",
-      "startDate": "2012",
-      "endDate": "2013",
-      "summary": "Banking system for mortgage loans management. Web application developer. Technologies: .NET 3.5, C#, Visual Basic .NET, Cobol AS400, MS SQL Server."
+      "summary": "I have implemented Chekalo.pe web app, which is continuously being improved and updated with new features. Chekalo.pe is a price aggregator web app designed to help users find the best prices for products from various stores in Peru. Technologies: React/Remix, TypeScript, Tailwind CSS, Node.js/NestJS, PostgresSQL."
     },
     {
       "row": 8,
+      "name": "Scotiabank Perú",
+      "position": "Team Leader/Tech Leader",
+      "location": "Remote",
+      "startDate": "08/2021",
+      "endDate": "current work",
+      "summary": "I have successfully overseen the development of the Robotic Process Automation (RPA) team and spearheaded the implementation of diverse automation processes across multiple areas within the bank. My role involved providing technical expertise to the development team to design, develop, and implement these solutions. Technologies used include C#, .NET, Pega Robotics, and MS SQL Server."
+    },
+    {
+      "row": 7,
+      "name": "Banco de Crédito BCP",
+      "position": "Smart Automation Tech Leader → Tribe Technical Leader",
+      "location": "Remote",
+      "startDate": "08/2019",
+      "endDate": "07/2021",
+      "summary": "I spearheaded the implementation of cutting-edge Robotic Process Automation (RPA) solutions for the bank by leading multiple teams. A significant achievement was establishing a framework and standards for Automation Anywhere implementations, ensuring consistency and quality across all teams. Technologies: C#, .NET, Automation Anywhere, MS SQL Server, REST API."
+    },
+    {
+      "row": 6,
+      "name": "Scotiabank Perú",
+      "position": "RPA Tech Leader",
+      "location": "",
+      "startDate": "10/2016",
+      "endDate": "07/2019",
+      "summary": "I led the RPA (Robotic Process Automation) team, implementing Pega Robotics solutions across various operational areas of the bank. Leveraging my technical expertise in design, development, and deployment, I ensured high performance and stability solutions, while providing strong leadership to drive operational efficiency. Technologies: C#, .NET, Pega Robotics, MS SQL Server."
+    },
+    {
+      "row": 5,
+      "name": "Scotiabank Perú",
+      "position": "IT Analyst Jr. → Tech Leader",
+      "location": "",
+      "startDate": "08/2014",
+      "endDate": "09/2016",
+      "summary": "I led the design and development of new applications and took charge of maintaining and optimizing existing solutions within the bank. Additionally, I provided strong leadership to small development teams, driving them towards successful project outcomes. Technologies: C#, .NET, VB .NET, MS SQL Server, AS400, COBOL"
+    },
+    {
+      "row": 4,
+      "name": "Software Enterprise Services",
+      "position": "Software Developer",
+      "location": "",
+      "startDate": "04/2014",
+      "endDate": "06/2014",
+      "summary": "As a developer, I have implemented new features for the loan web application at the bank, using my technical skills to improve functionality and user experience. Technologies: C#, .NET, VB .NET, MS SQL Server, AS400, COBOL"
+    },
+    {
+      "row": 3,
+      "name": "MINEDU Peru",
+      "position": "Software Developer",
+      "location": "",
+      "startDate": "08/2013",
+      "endDate": "02/2014",
+      "summary": "I led the implementation of an academic system to streamline admission processes and student data management at national educational institutions. As a Full Stack Developer, I utilized my technical expertise to carefully design and develop comprehensive solutions. Technologies: C#, MVC, .NET, SQL Server, PHP, Yii Framework, MySQL"
+    },
+    {
+      "row": 2,
+      "name": "Software Enterprise Services",
+      "position": "Software Developer",
+      "location": "",
+      "startDate": "05/2012",
+      "endDate": "07/2013",
+      "summary": "I worked as a developer, focusing on implementing new features for a banking system dedicated to mortgage loan management. My responsibilities included enhancing the system's functionality and usability through the integration of innovative features. Technologies: C#, .NET, VB .NET, MS SQL Server, AS400, COBOL"
+    },
+    {
+      "row": 1,
       "name": "SISPRO S.A.C.",
       "position": "Software Developer",
       "location": "",
-      "startDate": "2011",
-      "endDate": "2012",
-      "summary": "Banking application for customer identification through queue management system with RENIEC. Web Developer/Back-End Developer. Technologies: .NET 4.0, C#, MS SQL Server, WebSphere MQ."
+      "startDate": "05/2011",
+      "endDate": "05/2012",
+      "summary": "As a software developer, I played a key role in implementing a new banking application. I specifically worked on developing a customer identification system that smoothly integrated with a queue management system with RENIEC (National Registry of Identification and Civil Status). Technologies: C#, .NET, MS SQL Server, WebSphere MQ"
     }
   ],
   "education": [
@@ -117,7 +126,7 @@
       "row": 1,
       "institution": "Zero To Mastery Academy",
       "url": "https://zerotomastery.io/",
-      "area": "Completed several courses in Front-end & Back-end development. Ex. React, Node, Database.",
+      "area": "Completed several courses in Front-end & Back-end development. Ex. Modern JS, TypeScript, React, Remix, Node.js.",
       "summary": "",
       "startDate": "2022",
       "endDate": "2024"
@@ -268,7 +277,7 @@
     },
     {
       "row": 3,
-      "name": "React/Remix/Next.js"
+      "name": "React/Remix"
     },
     {
       "row": 4,
@@ -303,7 +312,7 @@
     {
       "row": 1,
       "language": "English",
-      "fluency": "Intermediate+"
+      "fluency": "Advanced"
     },
     {
       "row": 2,

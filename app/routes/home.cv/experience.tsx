@@ -14,9 +14,11 @@ export function Experience() {
               <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                 {item.name}
                 <span className="inline-flex gap-x-1">
-                  <div className="inline-flex items-center text-nowrap rounded-md border border-transparent bg-secondary px-2 py-0.5 align-middle font-mono text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/60 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                    {item.location}
-                  </div>
+                  {item.location && item.location !== "" && (
+                    <div className="inline-flex items-center text-nowrap rounded-md border border-transparent bg-secondary px-2 py-0.5 align-middle font-mono text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/60 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                      {item.location}
+                    </div>
+                  )}
                 </span>
               </h3>
               <div className="text-sm tabular-nums text-muted-foreground">
