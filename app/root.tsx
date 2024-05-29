@@ -27,7 +27,7 @@ export const links: LinksFunction = () => [
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  let { getTheme } = await themeSessionResolver(request);
+  const { getTheme } = await themeSessionResolver(request);
   return {
     theme: getTheme(),
   };
@@ -41,7 +41,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function AppWithProviders() {
-  let data = useLoaderData<typeof loader>();
+  const data = useLoaderData<typeof loader>();
 
   return (
     <ThemeProvider
@@ -55,11 +55,11 @@ export default function AppWithProviders() {
 }
 
 export function App() {
-  let data = useLoaderData<typeof loader>();
-  let [theme] = useTheme();
+  const data = useLoaderData<typeof loader>();
+  const [theme] = useTheme();
 
   return (
-    <html lang="en" className={clsx(theme)}>
+    <html lang="en" className={clsx(theme ?? "")}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

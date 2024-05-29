@@ -27,20 +27,21 @@ import msSQLServerLogoWhite from "~/icons/sql-server-logo-white.png";
 
 import { BookmarkCheck } from "lucide-react";
 import { FeedRowType, findAllFeeds } from "~/models/feeds.server";
+import { ClientOnly } from "remix-utils/client-only";
 
 type LoaderData = {
   feeds: Array<FeedRowType>;
 };
 
 export async function loader() {
-  let feeds = await findAllFeeds();
+  const feeds = await findAllFeeds();
 
   return { feeds };
 }
 
 export default function HomeMain() {
-  let [theme] = useTheme();
-  let { feeds } = useLoaderData() as LoaderData;
+  const [theme] = useTheme();
+  const { feeds } = useLoaderData() as LoaderData;
 
   return (
     <main className="flex flex-col min-h-[calc(100vh_-_theme(spacing.16))] flex-1 gap-4 bg-muted/40 p-4 md:gap-8 md:p-10 font-mono">
@@ -87,12 +88,22 @@ export default function HomeMain() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {theme === Theme.DARK && (
-                <img src={nodeWhiteLogo} alt="node" className="w-32" />
-              )}
-              {theme === Theme.LIGHT && (
-                <img src={nodeDarkLogo} alt="node" className="w-32" />
-              )}
+              <ClientOnly
+                fallback={
+                  <img src={nodeWhiteLogo} alt="node" className="w-32" />
+                }
+              >
+                {() => (
+                  <>
+                    {theme === Theme.DARK && (
+                      <img src={nodeWhiteLogo} alt="node" className="w-32" />
+                    )}
+                    {theme === Theme.LIGHT && (
+                      <img src={nodeDarkLogo} alt="node" className="w-32" />
+                    )}
+                  </>
+                )}
+              </ClientOnly>
             </Link>
           </CardHeader>
         </Card>
@@ -116,20 +127,34 @@ export default function HomeMain() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {theme === Theme.DARK && (
-                <img
-                  src={tailwindLogoWhiteLogo}
-                  alt="tailwind"
-                  className="w-44"
-                />
-              )}
-              {theme === Theme.LIGHT && (
-                <img
-                  src={tailwindLogoDarkLogo}
-                  alt="tailwind"
-                  className="w-44"
-                />
-              )}
+              <ClientOnly
+                fallback={
+                  <img
+                    src={tailwindLogoWhiteLogo}
+                    alt="tailwind"
+                    className="w-44"
+                  />
+                }
+              >
+                {() => (
+                  <>
+                    {theme === Theme.DARK && (
+                      <img
+                        src={tailwindLogoWhiteLogo}
+                        alt="tailwind"
+                        className="w-44"
+                      />
+                    )}
+                    {theme === Theme.LIGHT && (
+                      <img
+                        src={tailwindLogoDarkLogo}
+                        alt="tailwind"
+                        className="w-44"
+                      />
+                    )}
+                  </>
+                )}
+              </ClientOnly>
             </Link>
           </CardHeader>
         </Card>
@@ -141,12 +166,30 @@ export default function HomeMain() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {theme === Theme.DARK && (
-                <img src={remixDarkLogo} alt="remix.run" className="w-40" />
-              )}
-              {theme === Theme.LIGHT && (
-                <img src={remixWhiteLogo} alt="remix.run" className="w-40" />
-              )}
+              <ClientOnly
+                fallback={
+                  <img src={remixDarkLogo} alt="remix.run" className="w-40" />
+                }
+              >
+                {() => (
+                  <>
+                    {theme === Theme.DARK && (
+                      <img
+                        src={remixDarkLogo}
+                        alt="remix.run"
+                        className="w-40"
+                      />
+                    )}
+                    {theme === Theme.LIGHT && (
+                      <img
+                        src={remixWhiteLogo}
+                        alt="remix.run"
+                        className="w-40"
+                      />
+                    )}
+                  </>
+                )}
+              </ClientOnly>
             </Link>
           </CardHeader>
         </Card>
@@ -158,7 +201,7 @@ export default function HomeMain() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={nestjsLogo} alt="remix.run" className="w-14" />
+              <img src={nestjsLogo} alt="nestJS" className="w-14" />
             </Link>
           </CardHeader>
         </Card>
@@ -166,11 +209,11 @@ export default function HomeMain() {
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
-              to="https://remix.run/"
+              to="https://dotnet.microsoft.com/en-us/languages/csharp"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={cSharpLogo} alt="remix.run" className="w-12" />
+              <img src={cSharpLogo} alt="c#" className="w-12" />
             </Link>
           </CardHeader>
         </Card>
@@ -178,11 +221,11 @@ export default function HomeMain() {
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
-              to="https://remix.run/"
+              to="https://dotnet.microsoft.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={dotNetLogo} alt="remix.run" className="w-12" />
+              <img src={dotNetLogo} alt="dotnet" className="w-12" />
             </Link>
           </CardHeader>
         </Card>
@@ -190,16 +233,38 @@ export default function HomeMain() {
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
-              to="https://remix.run/"
+              to="https://www.microsoft.com/es-es/sql-server/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {theme === Theme.DARK && (
-                <img src={msSQLServerLogoWhite} alt="remix.run" className="w-[70px]" />
-              )}
-              {theme === Theme.LIGHT && (
-                <img src={msSQLServerLogo} alt="remix.run" className="w-[70px]" />
-              )}
+              <ClientOnly
+                fallback={
+                  <img
+                    src={msSQLServerLogoWhite}
+                    alt="mssqlserver"
+                    className="w-[70px]"
+                  />
+                }
+              >
+                {() => (
+                  <>
+                    {theme === Theme.DARK && (
+                      <img
+                        src={msSQLServerLogoWhite}
+                        alt="mssqlserver"
+                        className="w-[70px]"
+                      />
+                    )}
+                    {theme === Theme.LIGHT && (
+                      <img
+                        src={msSQLServerLogo}
+                        alt="mssqlserver"
+                        className="w-[70px]"
+                      />
+                    )}
+                  </>
+                )}
+              </ClientOnly>
             </Link>
           </CardHeader>
         </Card>
@@ -211,7 +276,7 @@ export default function HomeMain() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={postgresqlLogo} alt="react" className="w-14" />
+              <img src={postgresqlLogo} alt="postgreSQL" className="w-14" />
             </Link>
           </CardHeader>
         </Card>
@@ -223,7 +288,7 @@ export default function HomeMain() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={mongoDbLogo} alt="react" className="w-36" />
+              <img src={mongoDbLogo} alt="mongodb" className="w-36" />
             </Link>
           </CardHeader>
         </Card>

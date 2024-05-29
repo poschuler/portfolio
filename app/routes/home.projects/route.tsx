@@ -13,12 +13,12 @@ type LoaderData = {
 };
 
 export async function loader() {
-  let projects = await findAllProjects();
+  const projects = await findAllProjects();
   return { projects };
 }
 
 export default function HomeProjects() {
-  let { projects } = useLoaderData() as LoaderData;
+  const { projects } = useLoaderData() as LoaderData;
 
   return (
     <main className="flex flex-col min-h-[calc(100vh_-_theme(spacing.16))] flex-1 gap-4 bg-muted/40 p-4 md:gap-8 md:p-10 font-mono">
