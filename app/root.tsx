@@ -44,7 +44,11 @@ export default function AppWithProviders() {
   let data = useLoaderData<typeof loader>();
 
   return (
-    <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
+    <ThemeProvider
+      specifiedTheme={data.theme}
+      themeAction="/action/set-theme"
+      disableTransitionOnThemeChange={true}
+    >
       <App />
     </ThemeProvider>
   );
