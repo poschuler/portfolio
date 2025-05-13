@@ -1,20 +1,14 @@
-import { vitePlugin as remix } from "@remix-run/dev";
-import { installGlobals } from "@remix-run/node";
+import { reactRouter } from "@react-router/dev/vite";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { vercelPreset } from "@vercel/remix/vite";
-import { remixDevTools } from "remix-development-tools";
-
-installGlobals();
+import { reactRouterDevTools } from "react-router-devtools";
 
 export default defineConfig({
-  plugins: [remixDevTools(),
-    remix({
-      presets: [vercelPreset()],
-    }),
+  plugins: [
+    reactRouterDevTools(),
+    tailwindcss(),
+    reactRouter(),
     tsconfigPaths(),
   ],
-  server: {
-    open: true,
-  },
 });

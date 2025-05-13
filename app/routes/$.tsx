@@ -1,8 +1,8 @@
-import { json } from "@remix-run/node";
 import { Unplug } from "lucide-react";
+import { data } from "react-router";
 
 export async function loader() {
-  return json(null, { status: 404 });
+  return data(null, { status: 404 });
 }
 
 export default function Component() {
