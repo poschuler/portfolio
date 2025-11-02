@@ -331,7 +331,7 @@ function ContentItem({ item }: ContentItemProps) {
           <>
             <BookmarkCheck className="h-6 w-6" />
             <a className="text-low" href={item.externalUrl} target="_blank" rel="noreferrer">
-              I just read, "{item.title}" by {item.source}
+              I read, "{item.title}" by {item.source}
             </a>
           </>
         }
