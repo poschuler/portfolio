@@ -1,6 +1,6 @@
 import { generateSitemap, type SitemapRoute } from "@forge42/seo-tools/sitemap";
 import { type LoaderFunctionArgs } from "react-router";
-import { findAll, findAllBookmarks, findAllPosts } from "~/models/content.server";
+import { findAll } from "~/models/content.server";
 
 export async function loader({ request }: LoaderFunctionArgs) {
     //const isProduction = process.env.DEPLOYMENT_ENV === "production";
