@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { FileCode2, GitMerge, HomeIcon, Menu, Terminal } from "lucide-react";
+import { BookMarked, FileCode2, GitMerge, HomeIcon, Menu, NotebookPen, Terminal } from "lucide-react";
 import { ModeToggle } from "~/components/mode.toggle";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
@@ -23,6 +23,20 @@ export function Header() {
           >
             <HomeIcon className="h-4 w-4" />
             <span>home</span>
+          </Link>
+          <Link
+            to="/blog"
+            className="flex items-center gap-2 text-muted-foreground transition-colors duration-200 hover:text-default"
+          >
+            <NotebookPen className="h-4 w-4" />
+            <span>blog</span>
+          </Link>
+          <Link
+            to="/bookmarks"
+            className="flex items-center gap-2 text-muted-foreground transition-colors duration-200 hover:text-default"
+          >
+            <BookMarked className="h-4 w-4" />
+            <span>bookmarks</span>
           </Link>
           <Link
             to="/cv"

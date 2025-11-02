@@ -1,7 +1,6 @@
-import { BookmarkCheck } from "lucide-react";
-import { Link, useLoaderData } from "react-router";
+import { BookmarkCheck, PenLine } from "lucide-react";
+import { Link, useLoaderData, type MetaFunction } from "react-router";
 import { Theme, useTheme } from "remix-themes";
-import { findAllFeeds, type FeedRowType } from "~/models/feeds.server";
 import { Card, CardHeader } from "~/components/ui/card";
 
 import tailwindLogoDarkLogo from "~/icons/tailwindcss-logotype-dark.svg";
@@ -26,26 +25,37 @@ import cSharpLogo from "~/icons/c-sharp.svg";
 import msSQLServerLogo from "~/icons/microsoft-sql-server-logo.svg";
 import msSQLServerLogoWhite from "~/icons/sql-server-logo-white.png";
 import { ClientOnly } from "remix-utils/client-only";
+import { findAll, type ContentRowType } from "~/models/content.server";
 // import { Separator } from "~/components/chekalo/Separator";
 
-type LoaderData = {
-  feeds: Array<FeedRowType>;
-};
 
 export async function loader() {
-  const feeds = await findAllFeeds();
+  const contentItems = await findAll();
 
-  return { feeds };
+  return { contentItems };
 }
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Paul Osorio Schuler | Software Engineer (Node.js, Azure) & MBA" },
+    { name: "description", content: "Software Engineer specializing in highly-scalable backend systems. Expertise in Node.js, TypeScript, Azure, and Domain-Driven Design (DDD). View my full CV, blog and bookmarks." },
+    { tagName: "link", rel: "canonical", href: "https://poschuler.com" },
+    { name: "og:title", content: "Paul Osorio Schuler | Software Engineer (Node.js, Azure) & MBA" },
+    { name: "og:description", content: "Software Engineer specializing in highly-scalable backend systems. Expertise in Node.js, TypeScript, Azure, and Domain-Driven Design (DDD)." },
+    { name: "og:image", content: "https://avatars.githubusercontent.com/u/1238212?v=4" },
+    { name: "og:type", content: "website" },
+    { name: "og:url", content: "https://poschuler.com" },
+  ];
+};
 
 export default function Home() {
   const [theme] = useTheme();
-  const { feeds } = useLoaderData() as LoaderData;
+  const { contentItems } = useLoaderData<typeof loader>();
 
   return (
     <main className="flex flex-col min-h-[calc(100vh_-_theme(spacing.16))] flex-1 gap-4 p-4 md:gap-8 md:p-10 font-mono bg-ui">
       <section className="w-full">
-        <div className="mx-auto relative flex size-36 overflow-hidden rounded-full">
+        <div className="mx-auto relative flex size-28 overflow-hidden rounded-full">
           <img
             src={"https://avatars.githubusercontent.com/u/1238212?v=4"}
             alt={"github avatar"}
@@ -59,15 +69,18 @@ export default function Home() {
           </h1>
         </div>
 
-        <div className="max-w-[450px] mx-auto">
+        <div className="max-w-[650px] mx-auto">
           <blockquote className="text-center mt-2 italic text-muted-foreground text-lg">
-            Software Architect · iSAQB® Certified · Software Engineer
+            &lt;&lt; Software Engineer & MBA from Peru | 12+ Years Experience &gt;&gt;
+          </blockquote>
+          <blockquote className="pt-1 text-center mt-2 italic text-muted-foreground text-lg">
+            Currently working as Software Architect, focusing on building client-centric solutions that drive measurable business value.
           </blockquote>
         </div>
       </section>
       {/* <Separator className="mx-auto w-28" /> */}
 
-      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+      {/* <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card className="flex h-20 justify-center items-center">
           <CardHeader className="p-0 space-y-0">
             <Link
@@ -291,56 +304,48 @@ export default function Home() {
             </Link>
           </CardHeader>
         </Card>
-      </div>
-
-      <section className="w-full">
-        {feeds &&
-          feeds.map((feed) => {
-            return <Feed key={feed.idFeed} feed={feed} />;
+      </div> */}
+      <section className="pt-4 lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl mx-auto">
+        {contentItems &&
+          contentItems.map((item) => {
+            return <ContentItem key={item.idContent} item={item} />;
           })}
-        {/* <div className="p-4 border-l-2">
-          <small className="text-base font-medium leading-none">
-            Date
-          </small>
-
-          <div className="flex gap-2 mt-2">
-            <BookmarkCheck className="h-6 w-6" />
-            <p className="text-muted-foreground">
-              Text
-              <Link
-                to=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground transition-colors hover:text-muted-foreground"
-              >
-                Text
-              </Link>{" "}
-              Text
-            </p>
-          </div>
-        </div>*/}
       </section>
     </main>
   );
 }
 
-type FeedProps = {
-  feed: FeedRowType;
+type ContentItemProps = {
+  item: ContentRowType;
 };
 
-function Feed({ feed }: FeedProps) {
+function ContentItem({ item }: ContentItemProps) {
   return (
-    <div className="p-4 border-default border-l-2">
+    <div className="my-4 p-4 border-default border-l-2">
       <small className="text-base font-medium leading-none">
-        {feed.stringDate}
+        {item.publishedStringDate}
       </small>
 
       <div className="flex gap-2 mt-2 text-low">
-        <BookmarkCheck className="h-6 w-6" />
-        <p
-          className="text-low"
-          dangerouslySetInnerHTML={{ __html: feed.content }}
-        ></p>
+        {item.type === "link" &&
+          <>
+            <BookmarkCheck className="h-6 w-6" />
+            <a className="text-low" href={item.externalUrl} target="_blank" rel="noreferrer">
+              I just read, "{item.title}" by {item.source}
+            </a>
+          </>
+        }
+
+        {item.type === "post" &&
+          <>
+            <PenLine className="h-6 w-6" />
+            <a className="text-low" href={`/blog/${item.slug}`}>
+              I wrote, {item.title}
+            </a>
+          </>
+        }
+
+
       </div>
     </div>
   );

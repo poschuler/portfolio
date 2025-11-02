@@ -41,6 +41,7 @@
 @plugin "tailwindcss-react-aria-components" {
   prefix: rac;
 }
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -432,4 +433,25 @@
 
 .horizontal-product-list > * {
   @apply break-inside-avoid;
+}
+
+
+@utility prose {
+  --tw-prose-body: var(--mauve-11);
+  --tw-prose-headings: var(--mauve-12);
+  --tw-prose-lead: var(--mauve-10);
+  --tw-prose-links: var(--mauve-12);
+  --tw-prose-bold: var(--mauve-12);
+  --tw-prose-counters: var(--mauve-9);
+  --tw-prose-bullets: var(--mauve-7);
+  --tw-prose-hr: var(--mauve-6);
+  --tw-prose-quotes: var(--mauve-12);
+  --tw-prose-quote-borders: var(--mauve-6);
+  --tw-prose-captions: var(--mauve-10);
+  --tw-prose-code: var(--mauve-12);
+  --tw-prose-pre-code: var(--mauve-12);
+  --tw-prose-pre-bg: var(--mauve-5);
+  --tw-prose-th-borders: var(--mauve-6);
+  --tw-prose-td-borders: var(--mauve-5);
+
 }

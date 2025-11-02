@@ -64,12 +64,18 @@ export async function loader({ request }: Route.LoaderArgs) {
   );
 }
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "poschuler" },
-    { name: "poschuler website", content: "poschuler website" },
-  ];
-};
+// export const meta: MetaFunction = () => {
+//   return [
+//     { title: "Paul Osorio Schuler | Software Engineer (Node.js, Azure) & MBA" },
+//     { name: "description", content: "Software Engineer specializing in highly-scalable backend systems. Expertise in Node.js, TypeScript, Azure, and Domain-Driven Design (DDD). View my full CV, blog and bookmarks." },
+//     { tagName: "link", rel: "canonical", href: "https://poschuler.com" },
+//     { name: "og:title", content: "Paul Osorio Schuler | Software Engineer (Node.js, Azure) & MBA" },
+//     { name: "og:description", content: "Software Engineer specializing in highly-scalable backend systems. Expertise in Node.js, TypeScript, Azure, and Domain-Driven Design (DDD)." },
+//     { name: "og:image", content: "https://avatars.githubusercontent.com/u/1238212?v=4" },
+//     { name: "og:type", content: "website" },
+//     { name: "og:url", content: "https://poschuler.com" },
+//   ];
+// };
 
 export default function AppWithProviders({ loaderData }: Route.ComponentProps) {
   const { theme: loaderTheme } = loaderData;
