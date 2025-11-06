@@ -344,8 +344,6 @@ function ContentItem({ item }: ContentItemProps) {
             </a>
           </>
         }
-
-
       </div>
     </div>
   );

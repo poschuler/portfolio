@@ -70,7 +70,8 @@ export default function BlogSlug() {
 
     return (
         <main className="flex flex-col min-h-[calc(100vh_-_theme(spacing.16))] flex-1 gap-4 p-4 md:gap-8 md:p-10 font-mono bg-ui">
-            <article className="prose py-8 mx-auto lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl">
+            {/* <article className="prose py-8 mx-auto lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl"> */}
+                <article className="prose py-8 mx-auto lg:max-w-4xl">
                 <h1>{title}</h1>
                 <p>Published on: {publishedAt}</p>
                 <hr className="mt-7 mb-7" />
