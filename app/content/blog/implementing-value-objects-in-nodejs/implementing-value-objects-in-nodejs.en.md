@@ -280,4 +280,4 @@ export class Money extends ValueObject<MoneyProps> {
 
 - Los Value Objects son la base para construir un Dominio.
 
-Los Value Object son la solución simple y poderosa: ayudandonos a encapsular la validación y la lógica de valor en objetos inmutables.
+Los Value Object son una solución simple y poderosa: ayudandonos a encapsular la validación y la lógica de valor en objetos inmutables.
