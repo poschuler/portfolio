@@ -29,55 +29,53 @@ Un Value Object es un patrón que busca encapsular la lógica para la validació
 
 El VO no solo define la estructura del dato, sino también las reglas de negocio que lo rigen. Si no se puede crear un `EmailAddress` válido, la creación debe fallar inmediatamente, forzando a la siguiente capa a manejar el error.
 
-## II. La Promesa del VO: Tres Pilares de la Integridad
+## II. Los tres pilares de un Value Object
 
 Un Value Object solo es un VO si cumple con tres reglas fundamentales. Estas reglas son el contrato que garantiza la integridad de los datos en el Dominio. Si un objeto no cumple con una de estas reglas, es probable que no sea un Value Object, sino una Entidad.
 
-1. Inmutabilidad.
+1. **Inmutabilidad.**
 
     Una vez que un Value Object es creado, **su valor no puede cambiar**. Para "cambiar" un VO, debes destruirlo y crear uno nuevo.
 
     Por ejemplo:
 
-    - Si tenemos un `EmailAddress` con el valor `"usuario@dominio.com"`, no debe existir una forma de cambiar su valor a `"nuevo@dominio.com"` o a ningún otro.
+    - Si tenemos un `EmailAddress` con el valor "<usuario@dominio.com>", no debe existir una forma de cambiar su valor a "<nuevo@dominio.com>" o a ningún otro.
 
-    - Si pensamos en un VO como Money que tenga un valor de $10 y quisieramos sumarle $5, el método add(5) no modifica la instancia actual; retorna una nueva instancia de Money con el nuevo monto.
+    - Si pensamos en un VO como `Money` que tenga un valor de $10 y quisieramos sumarle $5, el método add(5) no modifica la instancia actual; retorna una nueva instancia de `Money` con el nuevo monto.
 
     La inmutabilidad es importante, porque elimina los efectos secundarios inesperados. Por ejemplo, si pasasamos un VO a un servicio, tenemos la total certeza de que el servicio no lo modificará, garantizando la consistencia del mismo.
 
-2. Igualdad por Valor.
+2. **Igualdad por Valor.**
 
     A diferencia de las Entidades (que se definen por un identificador único), un Value Object se define por el valor de sus componentes, es decir un VO no tiene identificador único.
 
     Dos VOs son iguales si todas sus propiedades son iguales.
 
-    - Si tenemos un objeto Money A con {amount: 10, currency: USD} y un objeto Money B con {amount: 10, currency: USD}, son exactamente el mismo Value Object, aunque sean dos instancias diferentes en memoria.
+    - Si tenemos un objeto Money A con `{amount: 10, currency: USD}` y un objeto Money B con `{amount: 10, currency: USD}`, son exactamente el mismo Value Object, aunque sean dos instancias diferentes en memoria.
 
     - Pensando en un ejemplo real: Un billete de $20 es igual a cualquier otro billete de $20. El valor es el mismo; su número de serie es irrelevante para su función.
 
-3. La Garantía de "Siempre Válido"
+3. **La Garantía de tener un valor "Siempre Válido"**
 
     El Value Object tiene la responsabilidad exclusiva de validar sus propias reglas de negocio y normalizar sus datos durante el proceso de creación.
 
     - **Validación**: ¿El `EmailAddress` cumple con el formato? ¿El `DateRange` tiene una fecha de inicio anterior a la fecha de fin?
 
-    - **Normalización**: Si el input es `"USER@DOMAIN.COM"`, el VO lo convertirá internamente a su forma canónica (limpia y minúscula): `"<user@domain.com>"`.
+    - **Normalización**: Si el input es "<USER@DOMAIN.COM>", el VO lo convertirá internamente a su forma canónica (limpia y minúscula): "<user@domain.com>".
 
     Si la validación falla o la normalización es imposible, el VO impedirá su propia creación, ya sea lanzando una excepción o devolviendo un objeto Result con el error. Con esto nos aseguramos que solo objetos válidos entren en nuestro Dominio.
 
-## III. Construyendo la Clase Base `ValueObject<T>`
+## III. Construyendo la Clase Base `ValueObject`
 
-El objetivo es crear una calse base, abstracta, `ValueObject<T>`, que se encargue de la **igualdad por valor** y defina el contrato de inmutabilidad para todas las clases que la hereden.
+El objetivo es crear una clase base, abstracta, `ValueObject`, que se encargue de la **igualdad por valor** y defina el contrato de inmutabilidad para todas las clases que la hereden.
 
-A. La Clase Abstracta `ValueObject<T>`
-
-Definimos una clase genérica que acepta un tipo `T`.
+A. La Clase Abstracta `ValueObject`
 
 ```typescript
 // Definimos EqualityComponent para manejar tanto primitivos como VO anidades en la igualdad por valor
-type EqualityComponent = string | number | boolean |  Date | null | undefined | ValueObject<any>;
+type EqualityComponent = string | number | boolean  | Date | null | undefined | ValueObject;
 
-export abstract class ValueObject<T> {
+export abstract class ValueObject {
 
   /**
   * Contrato de Igualdad:
@@ -89,7 +87,7 @@ export abstract class ValueObject<T> {
   /**
   * Método para comparar dos VOs.
   */
-  public equals(other?: ValueObject<T>): boolean {
+  public equals(other?: ValueObject): boolean {
     // 1. Validamos si el objeto a comprar es nulo o undefined
     if (other === null || other === undefined) {
       return false;
@@ -123,6 +121,11 @@ export abstract class ValueObject<T> {
         return component.equals(otherComponent);
       }
 
+      //8. Si son tipo Date
+      if (component instanceof Date && otherComponent instanceof Date) {
+        return component.getTime() === otherComponent.getTime();
+      }
+
       //8. en caso contrario comparamos los valores primitivos
       return component === otherComponent;
     });
@@ -133,13 +136,13 @@ export abstract class ValueObject<T> {
 
 B. Inmutabilidad y la Extensibilidad
 
-Con esta *abstract base class* logramos dos cosas críticas:
+Con esta *clase base abstracta* logramos dos cosas críticas:
 
-  1. Imposición de Contrato: Al hacer `getEqualityComponents()` abstracto, forzamos a cada desarrollador que crea un nuevo VO a declarar explícitamente qué define su valor. No hay forma de olvidarlo.
+  1. **Imposición de Contrato**: Al hacer `getEqualityComponents()` abstracto, forzamos a cada desarrollador que crea un nuevo VO a declarar explícitamente qué define su valor. No hay forma de olvidarlo.
 
-  2. Igualdad Automática: El método `equals()`  hace todo el trabajo pesado, incluyendo la comparación recursiva para VOs anidados.
+  2. **Igualdad Automática**: El método `equals()`  hace todo el trabajo pesado, incluyendo la comparación recursiva para VOs anidados.
 
-      - Por ejemplo, si comparamos dos objetos `Money`, el método `equals` sabe que el componente `Currency` es, a su vez, otro `Value Object`, y automáticamente llama a `currency.equals()` para garantizar una comparación profunda y correcta.
+      - Por ejemplo, si comparamos dos objetos `Money`, el método `equals` sabe que el componente `Currency` es, a su vez, otro `ValueObject`, y automáticamente llama a `currency.equals()` para garantizar una comparación profunda y correcta.
 
 ## IV. Algunos ejemplos reales de Value Objects
 
@@ -153,7 +156,7 @@ Para este ejemplo, el VO se asegurará de que el string interno sea siempre un e
 
 ```typescript
 
-export class Email extends ValueObject<string> {
+export class Email extends ValueObject {
 
   //Estado inmutable (readonly)
   public readonly value: string;
@@ -196,7 +199,77 @@ Con esta implementación, nos aseguramos que cualquier instancia de `Email` sea 
 
 B. Ejemplo 2: `Money`
 
-El VO Money es más complejo ya que está compuesto de amount y currency, donde Currency es otro Value Object.
+El VO Money es más complejo ya que está compuesto de amount y currency, siendo ambos Value Objects.
+
+Primero definmos Amount, para el cual utilizaremos BigNumber para evitar problemas con los valores decimales.
+
+```typescript
+import BigNumber from "bignumber.js";
+
+const ROUNDING_MODE = BigNumber.ROUND_HALF_UP;
+const DECIMAL_PLACES = 2;
+
+type AmountProps = {
+  readonly value: BigNumber;
+};
+
+export class Amount extends ValueObject {
+
+  public readonly value: BigNumber;
+
+  private constructor(props: AmountProps) {
+    super();
+    this.value = props.value.dp(DECIMAL_PLACES, ROUNDING_MODE);
+  }
+
+  public static create(input: number | string | BigNumber): Amount {
+    try {
+      const bigValue = new BigNumber(input);
+
+      if (bigValue.isNaN()) {
+        throw new Error("Invalid amount: not a number");
+      }
+
+      if (bigValue.isNegative()) {
+        throw new Error("Invalid amount: amount cannot be negative");
+      }
+
+      return new Amount({ value: bigValue });
+    } catch {
+      throw new Error(`Error creating Amount from input: ${input}`);
+    }
+  }
+
+  public add(other: Amount): Amount {
+    const newValue = this.value.plus(other.value);
+    return new Amount({ value: newValue });
+  }
+
+  public times(multiplier: number): Amount {
+    const newValue = this.value.times(multiplier);
+    return new Amount({ value: newValue });
+  }
+
+  public isZero(): boolean {
+    return this.value.isZero();
+  }
+
+  public toString(): string {
+    return this.value.toFixed(DECIMAL_PLACES, ROUNDING_MODE);
+  }
+
+  public toNumber(): number {
+    return parseFloat(this.toString());
+  }
+
+  protected getEqualityComponents() {
+    return [this.value.toFixed(DECIMAL_PLACES)];
+  }
+}
+
+```
+
+Ahora definimos Money el cual utilizará Amount.
 
 ```typescript
 
@@ -210,7 +283,7 @@ type CreateMoneyProps = {
   readonly currency: Currency;
 };
 
-export class Money extends ValueObject<MoneyProps> {
+export class Money extends ValueObject {
 
   //VO Amount anidado
   public readonly amount: Amount;
@@ -278,18 +351,18 @@ export class Money extends ValueObject<MoneyProps> {
 
 ```
 
-- Composición: Podemos componer dos VO anidándolos según sea necesario, en nuestro ejemplo usamos Currency dentro de Money.
+- Composición: Podemos componer dos VO anidándolos según sea necesario, en nuestro ejemplo usamos Currency y Amount dentro de Money.
 
-- Inmutabilidad: El método `add()` siempre crea y devuelve un `new Money()`, nunca modifica su propio estado.
+- Inmutabilidad: El método `add()` siempre crea y devuelve un `new Amount()`, nunca modifica su propio estado.
 
 ## V Cierre: Lo Esencial del Value Object
 
-- La obsesión por los primitivos puede llevarnos a escribir código que sea costoso de mantener y fragil.
+- La obsesión por los primitivos puede llevarnos a escribir código que sea costoso de mantener y frágil.
 
 - El uso de Value Objects es una decisión de diseño pragmática que mejora el lenguaje del domínio.
 
 - El uso de Value Objects nos ayuda a asegurar que el dominio tenga siempre datos válidos y consistentes.
 
-- Los Value Objects son la base para construir un Dominio.
+- Los Value Objects son la base para construir un Dominio expresivo y robusto.
 
 Los Value Object son una solución simple y poderosa: ayudandonos a encapsular la validación y la lógica de valor en objetos inmutables.
