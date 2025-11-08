@@ -355,7 +355,7 @@ export class Money extends ValueObject {
 
 - Inmutabilidad: El método `add()` siempre crea y devuelve un `new Amount()`, nunca modifica su propio estado.
 
-## V Cierre: Lo Esencial del Value Object
+## V. Cierre: Lo Esencial del Value Object
 
 - La obsesión por los primitivos puede llevarnos a escribir código que sea costoso de mantener y frágil.
 
