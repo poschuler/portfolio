@@ -205,9 +205,15 @@ type MoneyProps = {
   readonly currency: Currency;
 };
 
+type CreateMoneyProps = {
+  readonly amount: number | string;
+  readonly currency: Currency;
+};
+
 export class Money extends ValueObject<MoneyProps> {
 
-  public readonly amount: number;
+  //VO Amount anidado
+  public readonly amount: Amount;
 
   //VO Currency anidado
   public readonly currency: Currency;
@@ -219,23 +225,28 @@ export class Money extends ValueObject<MoneyProps> {
   }
 
   // Fábrica estática con validación
-  static create(inputProps: MoneyProps) {
+  static create(inputProps: CreateMoneyProps) {
     if (!inputProps) throw new Error("Money requires props");
     if (!inputProps.currency) throw new Error("Money requires currency");
-    if (inputProps.amount < 0) throw new Error("Amount cannot be negative");
 
-    //TODO add validation or normalization for Money values, ex. rounded two digits or something
+    const amountVO = Amount.create(inputProps.amount);
 
-    return new Money(inputProps);
+    return new Money({
+      amount: amountVO,
+      currency: inputProps.currency,
+    });
   }
 
   //El método add no modifica el VO, en cambio retorna una nueva instancia
   public add(other: Money): Money {
-    if (this.currency.code !== other.currency.code) {
+    if (!this.currency.equals(other.currency)) {
       throw new Error("Cannot add money with different currencies");
     }
+
+    const newAmount = this.amount.add(other.amount);
+
     return new Money({
-      amount: this.amount + other.amount,
+      amount: newAmount,
       currency: this.currency,
     });
   }
@@ -246,22 +257,23 @@ export class Money extends ValueObject<MoneyProps> {
 
   public static zero(props?: { currency: Currency }): Money {
     const currency = props?.currency ?? Currency.None;
-    return new Money({ currency, amount: 0 });
+    const zeroAmount = Amount.create(0);
+    return new Money({ currency, amount: zeroAmount });
   }
 
   public isZero(): boolean {
-    return this.amount === 0;
+    return this.amount.isZero();
   }
 
   public isZeroInCurrency({ currency }: { currency: Currency }): boolean {
-    return this.amount === 0 && this.currency.code === currency.code;
+    return this.amount.isZero() && this.currency.equals(currency);
   }
 
   // Método que retorna los componentes a comparar, incluyendo el VO anidado
   protected getEqualityComponents() {
     return [this.amount, this.currency]
   }
-
+  
 }
 
 ```
