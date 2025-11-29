@@ -218,6 +218,8 @@ console.log(emailA.equals(emailC)); // -> Resultado: false
 
 ```
 
+  ![Email Value Object](https://raw.githubusercontent.com/poschuler/nodejs-ddd-value-objects/refs/heads/main/architecture/diagrams/Email-Value-Object.svg)
+
 B. Ejemplo 2: `Money`
 
 El VO Money es más complejo ya que está compuesto de amount y currency, siendo ambos Value Objects.
@@ -375,6 +377,8 @@ export class Money extends ValueObject {
 - Composición: Podemos componer dos VO anidándolos según sea necesario, en nuestro ejemplo usamos Currency y Amount dentro de Money.
 
 - Inmutabilidad: El método `add()` siempre crea y devuelve un `new Amount()`, nunca modifica su propio estado.
+
+  ![Money Value Object](https://raw.githubusercontent.com/poschuler/nodejs-ddd-value-objects/refs/heads/main/architecture/diagrams/Money-Value-Object.svg)
 
 ## V. Cierre: Lo Esencial del Value Object
 
