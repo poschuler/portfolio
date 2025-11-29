@@ -1,15 +1,19 @@
-import { useLoaderData, type MetaFunction } from "react-router";
+import { Link, useLoaderData, type MetaFunction } from "react-router";
 import type { Route } from "./+types/_$blog-slug";
 import path from "node:path";
 import fs from "node:fs";
 import fm from "front-matter";
 import { marked } from "marked";
+import { Github } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+
 
 interface PostAttributes {
     title: string;
     description: string;
     tags: string[];
     publishedAt: string;
+    repository?: string;
 }
 
 interface LoaderData {
@@ -19,6 +23,7 @@ interface LoaderData {
     publishedAt: string;
     html: string;
     slug: string;
+    repository?: string;
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
@@ -42,6 +47,7 @@ export async function loader({ params }: Route.LoaderArgs) {
             publishedAt: new Date(attributes.publishedAt).toLocaleDateString(),
             html,
             slug: blogSlug,
+            repository: attributes.repository,
         };
     } catch (error) {
         // If the file doesn't exist, throw a 404 response
@@ -66,13 +72,29 @@ export const meta: MetaFunction = ({ data }) => {
 };
 
 export default function BlogSlug() {
-    const { html, publishedAt, title } = useLoaderData<typeof loader>();
+    const { html, publishedAt, title, repository } = useLoaderData<typeof loader>();
 
     return (
         <main className="flex flex-col min-h-[calc(100vh_-_theme(spacing.16))] flex-1 gap-4 p-4 md:gap-8 md:p-10 font-mono bg-ui">
             {/* <article className="prose py-8 mx-auto lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl"> */}
-                <article className="prose py-8 mx-auto lg:max-w-4xl">
+            <article className="prose py-8 mx-auto lg:max-w-4xl">
                 <h1>{title}</h1>
+
+                {/* show fancy repository design  flex items-center gap-2 text-muted-foreground transition-colors duration-200 hover:text-default*/}
+                {repository && (
+                    <p className="flex items-center gap-2">
+                        <GitHubLogoIcon className="size-6" />
+                        <Link
+                            to={repository}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-lg no-underline text-low flex items-center gap-2 transition-colors duration-200 hover:text-default"
+                        >
+                            View Github Repository
+                        </Link>
+                    </p>
+                )}
+
                 <p>Published on: {publishedAt}</p>
                 <hr className="mt-7 mb-7" />
                 <div dangerouslySetInnerHTML={{ __html: html }} />

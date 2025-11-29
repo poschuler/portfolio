@@ -23,7 +23,8 @@ CREATE TABLE "content" (
     "id_content" SERIAL NOT NULL,
 
     "slug" TEXT NOT NULL,
-    
+    "repository" TEXT,
+
     "lang" TEXT,
 
     "type" TEXT NOT NULL, -- "post" or "link"

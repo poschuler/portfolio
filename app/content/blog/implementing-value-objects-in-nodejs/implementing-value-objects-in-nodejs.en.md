@@ -4,6 +4,7 @@ title: 'Implementing Value Objects in Node.js'
 description: 'A practical guide to implementing Value Objects in TypeScript and Node.js to create more robust and expressive domain models, inspired by Domain-Driven Design principles.'
 tags: ['nodejs', 'typescript', 'ddd', 'architecture', 'value-object']
 publishedAt: '2025-11-02'
+repository: 'https://github.com/poschuler/nodejs-ddd-value-objects'
 ---
 ## I. Introducción: La Obsesión por los Primitivos y la Integridad de los Datos
 
@@ -196,6 +197,26 @@ export class Email extends ValueObject {
 ```
 
 Con esta implementación, nos aseguramos que cualquier instancia de `Email` sea siempre una instancia válida.
+
+Así mismo podemos validar la funcionalidad de igualdad de nuestra clase con un simple ejemplo.
+
+```typescript
+
+// 1. Creamos dos instancias diferentes en memoria
+const emailA = Email.create("ADMIN@company.com");
+const emailB = Email.create("admin@company.com");
+
+// 2. Comparamos las referencias de memoria
+console.log(emailA === emailB); // -> false
+
+// 3. Comparamos por el Valor 
+console.log(emailA.equals(emailB)); // -> true
+
+// 4. Un caso de desigualdad 
+const emailC = Email.create("otroadmin@company.com");
+console.log(emailA.equals(emailC)); // -> Resultado: false
+
+```
 
 B. Ejemplo 2: `Money`
 

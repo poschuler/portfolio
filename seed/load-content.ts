@@ -8,6 +8,7 @@ const CONTENT_DIR = path.join(process.cwd(), "app", "content");
 
 interface FrontMatterAttributes {
     type: 'post' | 'link';
+    repository: string;
     title: string;
     publishedAt: string;
     description?: string;
@@ -67,17 +68,18 @@ async function seed() {
             }
 
             const sql = `
-                            INSERT INTO "content" (slug, lang, type, title, description, "published_at", tags, updated_at)
-                            VALUES ($1, $2, 'post', $3, $4, $5, $6, CURRENT_TIMESTAMP)
+                            INSERT INTO "content" (slug, lang, type, title, description, "published_at", tags, updated_at, repository)
+                            VALUES ($1, $2, 'post', $3, $4, $5, $6, CURRENT_TIMESTAMP, $7)
                             ON CONFLICT (slug, lang) WHERE lang IS NOT NULL DO UPDATE SET
                             title = EXCLUDED.title,
                             description = EXCLUDED.description,
                             "published_at" = EXCLUDED."published_at",
                             tags = EXCLUDED.tags,
+                            repository = EXCLUDED.repository,
                             updated_at = CURRENT_TIMESTAMP
                             RETURNING id_content;
                         `;
-            const values = [slug, lang, attributes.title, attributes.description, attributes.publishedAt, attributes.tags || []];
+            const values = [slug, lang, attributes.title, attributes.description, attributes.publishedAt, attributes.tags || [], attributes.repository];
             const result = await dbQueryRow<{ id_content: number }>(sql, values);
             console.log(`✅ Upserted post with ID: ${result.id_content}`);
 
