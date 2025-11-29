@@ -74,7 +74,7 @@ export function Header() {
           <nav className="grid gap-6 text-lg font-medium">
             <Link
               to="/"
-              className="flex items-center gap-2 text-lg font-semibold"
+              className="flex items-center gap-2 text-lg text-default font-semibold"
               reloadDocument={true}
             >
               <Terminal className="h-6 w-6" />
@@ -82,15 +82,35 @@ export function Header() {
             </Link>
             <Link
               to="/"
-              className="flex items-center gap-2  text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-2 text-low transition-colors duration-200 hover:text-default"
               reloadDocument={true}
             >
               <HomeIcon className="h-4 w-4" />
               home
             </Link>
+
+            <Link
+              to="/blog"
+              className="flex items-center gap-2 text-low transition-colors duration-200 hover:text-default"
+              reloadDocument={true}
+            >
+              <NotebookPen className="h-4 w-4" />
+              blog
+            </Link>
+
+
+            <Link
+              to="/bookmarks"
+              className="flex items-center gap-2 text-low transition-colors duration-200 hover:text-default"
+              reloadDocument={true}
+            >
+              <BookMarked className="h-4 w-4" />
+              bookmarks
+            </Link>
+
             <Link
               to="/cv"
-              className="flex items-center gap-2  text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-2 text-low transition-colors duration-200 hover:text-default"
               reloadDocument={true}
             >
               <FileCode2 className="h-4 w-4" />
